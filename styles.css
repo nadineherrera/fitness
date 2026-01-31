@@ -130,19 +130,49 @@ textarea{
 .goal-area{margin-top:10px}
 .goal-heading{font-size:11px; letter-spacing:.14em; color:var(--muted); font-weight:900; margin:10px 0 8px; text-transform:uppercase; text-align:center}
 .goal-options{display:flex; gap:18px; flex-wrap:wrap}
-.body-diagram{height:170px; position:relative; padding:0 8px}
-.silhouettes{display:flex; justify-content:center; gap:40px; margin-top:6px}
-.silhouette{width:60px; height:150px; border:1px solid var(--grid); border-radius:40px; opacity:.65}
-.measure-labels{
-  list-style:none; margin:0; padding:0;
-  position:absolute; top:18px; left:50%; transform:translateX(-50%);
-  text-align:center; font-size:10px; letter-spacing:.14em; color:var(--muted);
-  font-weight:900; line-height:1.55; pointer-events:none;
+/* Starting point body diagram (image + centered labels) */
+.body-diagram{
+  position: relative;
+  width: 100%;
+  height: 170px;          /* adjust if needed */
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 0 8px;
 }
-.connector-lines{
-  position:absolute; inset:0;
-  background: linear-gradient(to right, transparent 0 44%, rgba(0,0,0,.08) 44% 44.2%, transparent 44.2% 56%, rgba(0,0,0,.08) 56% 56.2%, transparent 56.2% 100%);
-  opacity:.25;
+
+.body-img{
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Replace <ul class="measure-labels"> with <div class="measure-overlay"> */
+.measure-overlay{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  align-items: center;
+  justify-items: center;
+
+  /* tweak these 3 values to align perfectly */
+  padding-top: 18px;
+  padding-bottom: 18px;
+  width: 45%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.measure-label{
+  font-weight: 900;
+  letter-spacing: .14em;
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .photo-row{display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin:10px 0 14px}
