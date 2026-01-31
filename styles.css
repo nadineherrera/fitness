@@ -129,7 +129,7 @@ textarea{ font-family:inherit; }
 .goal-heading{font-size:11px; letter-spacing:.14em; color:var(--muted); font-weight:900; margin:10px 0 8px; text-transform:uppercase; text-align:center}
 .goal-options{display:flex; gap:18px; flex-wrap:wrap}
 
-/* ✅ Updated diagram container to support an <img> */
+/* ✅ Diagram container to support an <img> */
 .body-diagram{
   height:170px;
   position:relative;
@@ -138,8 +138,6 @@ textarea{ font-family:inherit; }
   align-items:center;
   justify-content:center;
 }
-
-/* ✅ New: the actual diagram image */
 .body-diagram-img{
   max-height:170px;
   width:100%;
@@ -147,7 +145,6 @@ textarea{ font-family:inherit; }
   object-fit:contain;
   display:block;
 }
-
 /* ✅ Safety: hide any old diagram layers if they still exist in HTML */
 .silhouettes,
 .measure-labels,
@@ -232,10 +229,10 @@ textarea{ font-family:inherit; }
   border-bottom:1px solid var(--grid);
 }
 
-/* ✅ Make the right column wider = more writing room */
+/* ✅ Wider right column = more writing room */
 .goal-grid{
   display:grid;
-  grid-template-columns: 1fr 440px;   /* was 120px */
+  grid-template-columns: 1fr 440px;
   grid-template-rows: 170px 120px;
 }
 
@@ -246,7 +243,6 @@ textarea{ font-family:inherit; }
   background:#fff;
 }
 
-/* ✅ Side rows match main rows so the divider aligns perfectly */
 .goal-side{
   grid-column:2;
   grid-row:1 / span 2;
@@ -276,7 +272,6 @@ textarea{ font-family:inherit; }
   background:#fff;
 }
 
-/* ✅ Move label to the left side so space stays open to the right */
 .vlabel{
   position:absolute;
   top:50%;
@@ -293,7 +288,7 @@ textarea{ font-family:inherit; }
 }
 .vlabel.small{font-size:9px}
 
-/* ✅ PURE BLANK writing areas */
+/* ✅ Remove any pattern backgrounds */
 .goal-main,
 .bottom-text,
 .side-text{
@@ -315,15 +310,10 @@ textarea{ font-family:inherit; }
   background:transparent;
 }
 
-/* ✅ Create a dedicated label gutter so writing area is large + clean */
 .side-text{
-  padding:14px 14px 14px 56px; /* more room on right side for writing */
+  padding:14px 14px 14px 56px;
 }
-
-/* ✅ Keep tint ONLY for Reward Achieved */
 .side-text.tint{ background:rgba(108,116,168,.10); }
-
-/* ✅ Remove tint from WHY I WANT IT writing area */
 .bottom-text{ background:transparent !important; }
 
 /* Workout screen */
@@ -353,6 +343,8 @@ textarea{ font-family:inherit; }
 .center{text-align:center}
 .mini th{background:var(--purple); color:#fff; font-size:10px; letter-spacing:.06em; font-weight:900; text-align:center; height:26px}
 .mini td{height:24px}
+
+/* Notes (used across multiple screens) */
 .notes-area{
   width:100%;
   height:150px;
@@ -420,6 +412,15 @@ textarea{ font-family:inherit; }
 .gap td{height:10px; background:#fff !important}
 .meals-table tfoot td{background:var(--purpleSoft); font-size:10px; letter-spacing:.06em; color:var(--muted); font-weight:900}
 
+/* Grocery List (uses existing .reflection / .reflection-box)
+   Adding tiny QoL tweaks so it feels like its own page */
+#screen-grocery .reflection{
+  grid-template-columns: 1fr 1fr;
+}
+#screen-grocery .reflection-box{
+  min-height:110px;
+}
+
 /* Monthly plan */
 .month-meta{display:flex; gap:12px; flex-wrap:wrap; margin:0 0 10px}
 .calendar th{background:var(--purple); color:#fff; font-size:10px; letter-spacing:.06em; font-weight:900; text-align:center; height:26px}
@@ -430,7 +431,16 @@ textarea{ font-family:inherit; }
 .box-title{font-size:11px; letter-spacing:.14em; color:var(--muted); font-weight:900; text-transform:uppercase; margin-bottom:8px}
 .stack4{display:flex; flex-direction:column; gap:8px}
 .better-grid{display:grid; grid-template-columns: 1fr; gap:10px}
-.better-grid label{display:grid; grid-template-columns: 180px 1fr; align-items:end; gap:10px; font-size:10px; letter-spacing:.08em; color:var(--muted); font-weight:900}
+.better-grid label{
+  display:grid;
+  grid-template-columns: 180px 1fr;
+  align-items:end;
+  gap:10px;
+  font-size:10px;
+  letter-spacing:.08em;
+  color:var(--muted);
+  font-weight:900
+}
 
 /* Monthly review */
 .review-top{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:10px}
@@ -438,13 +448,30 @@ textarea{ font-family:inherit; }
 .review-measures{display:flex; flex-direction:column; gap:10px}
 .scales{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
 .scale{border:1px solid var(--grid); border-radius:6px; padding:10px}
-.scale-label{font-size:10px; letter-spacing:.08em; color:var(--muted); font-weight:900; text-transform:uppercase; margin-bottom:6px}
+.scale-label{
+  font-size:10px; letter-spacing:.08em; color:var(--muted);
+  font-weight:900; text-transform:uppercase; margin-bottom:6px
+}
 .reflection{display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:12px}
-.reflection label{font-size:10px; letter-spacing:.08em; color:var(--muted); font-weight:900; text-transform:uppercase; display:flex; flex-direction:column; gap:6px}
+.reflection label{
+  font-size:10px; letter-spacing:.08em; color:var(--muted);
+  font-weight:900; text-transform:uppercase;
+  display:flex; flex-direction:column; gap:6px
+}
 .reflection-box{min-height:90px; border:1px solid var(--grid); border-radius:6px; padding:10px; outline:none; resize:vertical}
 .life-wheel{margin-top:12px; border:1px solid var(--grid); border-radius:6px; padding:10px}
 .wheel-grid{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
-.wheel-grid label{display:grid; grid-template-columns: 170px 1fr; gap:10px; align-items:end; font-size:10px; letter-spacing:.08em; color:var(--muted); font-weight:900; text-transform:uppercase}
+.wheel-grid label{
+  display:grid;
+  grid-template-columns: 170px 1fr;
+  gap:10px;
+  align-items:end;
+  font-size:10px;
+  letter-spacing:.08em;
+  color:var(--muted);
+  font-weight:900;
+  text-transform:uppercase
+}
 
 /* Products */
 .products th{background:var(--purple); color:#fff; font-size:10px; letter-spacing:.06em; font-weight:900; text-align:center; height:26px}
@@ -454,3 +481,18 @@ textarea{ font-family:inherit; }
 .subcap{text-align:center; color:var(--muted); font-weight:900; letter-spacing:.08em; text-transform:uppercase; margin-bottom:10px}
 .tracker th{background:var(--purple); color:#fff; font-size:10px; letter-spacing:.06em; font-weight:900; text-align:center; height:26px}
 .tracker td{height:26px}
+
+/* Small screens */
+@media (max-width: 860px){
+  .appbar{grid-template-columns:1fr; gap:8px}
+  .app-actions{justify-content:flex-start}
+  .top-grid{grid-template-columns:1fr}
+  .wellness-grid{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
+  .monthly-bottom{grid-template-columns:1fr}
+  .review-grid{grid-template-columns:1fr}
+  .reflection{grid-template-columns:1fr}
+  #screen-grocery .reflection{grid-template-columns:1fr}
+  .goal-grid{grid-template-columns:1fr; grid-template-rows:auto}
+  .goal-side{grid-column:1; grid-row:auto; border-left:none; border-top:1px solid var(--grid)}
+}
