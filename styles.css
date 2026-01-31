@@ -206,7 +206,7 @@ textarea{ font-family:inherit; }
 .date-row{color:var(--muted); font-weight:900}
 
 /* ===================================================== */
-/* Goals screen (fix label spacing + line alignment)      */
+/* Goals screen (MORE WRITING SPACE in deadline/reward)   */
 /* ===================================================== */
 
 .goals-stack{
@@ -232,11 +232,11 @@ textarea{ font-family:inherit; }
   border-bottom:1px solid var(--grid);
 }
 
-/* ✅ Right column sized like reference */
+/* ✅ Make the right column wider = more writing room */
 .goal-grid{
   display:grid;
-  grid-template-columns: 1fr 120px;   /* gives room for writing in deadline/reward */
-  grid-template-rows: 170px 120px;    /* main split (top / why row) */
+  grid-template-columns: 1fr 180px;   /* was 120px */
+  grid-template-rows: 170px 120px;
 }
 
 .goal-main{
@@ -246,12 +246,12 @@ textarea{ font-family:inherit; }
   background:#fff;
 }
 
-/* ✅ Make side rows match the main rows so divider lines align perfectly */
+/* ✅ Side rows match main rows so the divider aligns perfectly */
 .goal-side{
   grid-column:2;
   grid-row:1 / span 2;
   display:grid;
-  grid-template-rows: 170px 120px;    /* was 1fr 1fr (caused misaligned divider) */
+  grid-template-rows: 170px 120px;
   border-left:1px solid var(--grid);
 }
 
@@ -276,11 +276,11 @@ textarea{ font-family:inherit; }
   background:#fff;
 }
 
-/* ✅ Move DEADLINE / REWARD labels left so you have blank writing space to the right */
+/* ✅ Move label to the left side so space stays open to the right */
 .vlabel{
   position:absolute;
   top:50%;
-  left:22px; /* was centered; this pushes it toward the left edge like your reference */
+  left:22px;
   transform:translate(-50%,-50%) rotate(-90deg);
   font-size:10px;
   letter-spacing:.14em;
@@ -315,9 +315,9 @@ textarea{ font-family:inherit; }
   background:transparent;
 }
 
-/* ✅ Give room for vertical labels (creates clear blank space to the right of the words) */
+/* ✅ Create a dedicated label gutter so writing area is large + clean */
 .side-text{
-  padding:14px 12px 14px 44px; /* left padding creates a dedicated label gutter */
+  padding:14px 14px 14px 56px; /* more room on right side for writing */
 }
 
 /* ✅ Keep tint ONLY for Reward Achieved */
