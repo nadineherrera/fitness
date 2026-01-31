@@ -130,19 +130,31 @@ textarea{
 .goal-area{margin-top:10px}
 .goal-heading{font-size:11px; letter-spacing:.14em; color:var(--muted); font-weight:900; margin:10px 0 8px; text-transform:uppercase; text-align:center}
 .goal-options{display:flex; gap:18px; flex-wrap:wrap}
-.body-diagram{height:170px; position:relative; padding:0 8px}
-.silhouettes{display:flex; justify-content:center; gap:40px; margin-top:6px}
-.silhouette{width:60px; height:150px; border:1px solid var(--grid); border-radius:40px; opacity:.65}
-.measure-labels{
-  list-style:none; margin:0; padding:0;
-  position:absolute; top:18px; left:50%; transform:translateX(-50%);
-  text-align:center; font-size:10px; letter-spacing:.14em; color:var(--muted);
-  font-weight:900; line-height:1.55; pointer-events:none;
+
+/* ✅ Updated diagram container to support an <img> */
+.body-diagram{
+  height:170px;
+  position:relative;
+  padding:0 8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
+
+/* ✅ New: the actual diagram image */
+.body-diagram-img{
+  max-height:170px;
+  width:100%;
+  max-width:100%;
+  object-fit:contain;
+  display:block;
+}
+
+/* ✅ Safety: hide any old diagram layers if they still exist in HTML */
+.silhouettes,
+.measure-labels,
 .connector-lines{
-  position:absolute; inset:0;
-  background: linear-gradient(to right, transparent 0 44%, rgba(0,0,0,.08) 44% 44.2%, transparent 44.2% 56%, rgba(0,0,0,.08) 56% 56.2%, transparent 56.2% 100%);
-  opacity:.25;
+  display:none !important;
 }
 
 .photo-row{display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin:10px 0 14px}
