@@ -106,9 +106,7 @@ body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; color:
   font-size:11px;
   padding:2px;
 }
-textarea{
-  font-family:inherit;
-}
+textarea{ font-family:inherit; }
 
 /* Check labels */
 .chk{
@@ -208,7 +206,7 @@ textarea{
 .date-row{color:var(--muted); font-weight:900}
 
 /* ===================================================== */
-/* Goals screen (PURE BLANK writing areas)                */
+/* Goals screen (match your reference image)              */
 /* ===================================================== */
 
 .goals-stack{
@@ -234,10 +232,11 @@ textarea{
   border-bottom:1px solid var(--grid);
 }
 
+/* ✅ Shift DEADLINE/REWARD left by narrowing the right column */
 .goal-grid{
   display:grid;
-  grid-template-columns: 1fr 140px;   /* wider right column */
-  grid-template-rows: 170px 120px;    /* taller blocks */
+  grid-template-columns: 1fr 96px;     /* was 140px */
+  grid-template-rows: 170px 120px;
 }
 
 .goal-main{
@@ -266,7 +265,7 @@ textarea{
   grid-column:1;
   grid-row:2;
   display:grid;
-  grid-template-columns: 78px 1fr;
+  grid-template-columns: 70px 1fr;
   border-top:1px solid var(--grid);
 }
 
@@ -292,7 +291,7 @@ textarea{
 }
 .vlabel.small{font-size:9px}
 
-/* PURE BLANK: remove all ruled-line backgrounds */
+/* ✅ PURE BLANK writing areas: remove all ruled-line backgrounds */
 .goal-main,
 .bottom-text,
 .side-text{
@@ -314,14 +313,13 @@ textarea{
   background:transparent;
 }
 
-.side-text{
-  padding:12px 12px;
-}
+.side-text{ padding:12px 12px; }
 
-/* Keep light tint blocks (matches your current theme)
-   If you want these also white, tell me and I'll remove tint. */
-.side-text.tint{background:rgba(108,116,168,.10)}
-.bottom-text{background:rgba(108,116,168,.10)}
+/* ✅ Keep tint ONLY for Reward Achieved (your reward textarea already has class="tint") */
+.side-text.tint{ background:rgba(108,116,168,.10); }
+
+/* ✅ Remove tint from WHY I WANT IT writing area */
+.bottom-text{ background:transparent !important; }
 
 /* Workout screen */
 .label-row{display:flex; align-items:center; gap:8px; margin-bottom:10px}
