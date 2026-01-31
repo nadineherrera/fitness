@@ -208,7 +208,7 @@ textarea{
 .date-row{color:var(--muted); font-weight:900}
 
 /* ===================================================== */
-/* Goals screen (UPDATED to match reference proportions)  */
+/* Goals screen (PURE BLANK writing areas)                */
 /* ===================================================== */
 
 .goals-stack{
@@ -236,10 +236,8 @@ textarea{
 
 .goal-grid{
   display:grid;
-  /* ⬅️ Wider right column so Deadline/Reward has room */
-  grid-template-columns: 1fr 140px;
-  /* ⬅️ Taller overall blocks like the reference sheet */
-  grid-template-rows: 170px 120px;
+  grid-template-columns: 1fr 140px;   /* wider right column */
+  grid-template-rows: 170px 120px;    /* taller blocks */
 }
 
 .goal-main{
@@ -253,7 +251,6 @@ textarea{
   grid-column:2;
   grid-row:1 / span 2;
   display:grid;
-  /* split right column into Deadline and Reward halves */
   grid-template-rows: 1fr 1fr;
   border-left:1px solid var(--grid);
 }
@@ -269,7 +266,6 @@ textarea{
   grid-column:1;
   grid-row:2;
   display:grid;
-  /* slightly wider WHY column like the template */
   grid-template-columns: 78px 1fr;
   border-top:1px solid var(--grid);
 }
@@ -296,6 +292,16 @@ textarea{
 }
 .vlabel.small{font-size:9px}
 
+/* PURE BLANK: remove all ruled-line backgrounds */
+.goal-main,
+.bottom-text,
+.side-text{
+  background-image:none !important;
+  background-size:auto !important;
+  background-position:initial !important;
+  background-repeat:no-repeat !important;
+}
+
 .goal-text, .bottom-text, .side-text{
   width:100%;
   height:100%;
@@ -308,34 +314,14 @@ textarea{
   background:transparent;
 }
 
-/* Right column: clean blank writing space (no ruled lines) */
 .side-text{
   padding:12px 12px;
-  background:transparent;
 }
 
-/* Reward block keeps the light tint like the reference */
+/* Keep light tint blocks (matches your current theme)
+   If you want these also white, tell me and I'll remove tint. */
 .side-text.tint{background:rgba(108,116,168,.10)}
-
-/* Bottom writing area tint */
 .bottom-text{background:rgba(108,116,168,.10)}
-
-/* Ruled lines ONLY for the big main goal box (like reference) */
-.goal-main{
-  background-image: linear-gradient(to bottom, rgba(0,0,0,.08) 1px, transparent 1px);
-  background-size: 100% 28px;
-  background-position: 0 26px;
-  background-repeat:repeat;
-}
-
-/* (Optional look) If you ever want lines in WHY area too, move this block to .bottom-text */
-.bottom-text{
-  /* keep it subtle and readable */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,.06) 1px, transparent 1px);
-  background-size: 100% 28px;
-  background-position: 0 26px;
-  background-repeat:repeat;
-}
 
 /* Workout screen */
 .label-row{display:flex; align-items:center; gap:8px; margin-bottom:10px}
