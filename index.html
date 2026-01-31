@@ -16,6 +16,7 @@
       <button class="tab" data-screen="goals">Goals</button>
       <button class="tab" data-screen="workout">Workout</button>
       <button class="tab" data-screen="meals">Meals</button>
+      <button class="tab" data-screen="grocery">Grocery List</button>
       <button class="tab" data-screen="monthlyPlan">Monthly Plan</button>
       <button class="tab" data-screen="monthlyReview">Monthly Review</button>
       <button class="tab" data-screen="products">Products</button>
@@ -69,7 +70,6 @@
 
           <div class="body-block">
             <div class="body-diagram">
-              <!-- Uses your correct diagram image -->
               <img
                 src="assets/body-diagram.png"
                 alt="Body measurement diagram"
@@ -131,8 +131,8 @@
         </header>
 
         <div class="goals-stack">
-          <!-- Goal template x5 -->
 
+          <!-- Goal template x5 -->
           <article class="goal-card">
             <div class="goal-header">GOAL #1</div>
             <div class="goal-grid">
@@ -529,6 +529,38 @@
       </div>
     </section>
 
+    <!-- ========================= -->
+    <!-- SCREEN: GROCERY LIST      -->
+    <!-- ========================= -->
+    <section id="screen-grocery" class="screen">
+      <div class="page">
+        <div class="title center-title">
+          <span class="title-strong">GROCERY LIST</span>
+        </div>
+
+        <!-- Optional top meta row -->
+        <div class="month-meta">
+          <div class="field"><span class="field-label">WEEK OF:</span><input id="gl_weekof" class="line-input"/></div>
+          <div class="field"><span class="field-label">STORE:</span><input id="gl_store" class="line-input"/></div>
+        </div>
+
+        <!-- Simple sectioned list: uses your existing .reflection styles for consistency -->
+        <div class="reflection">
+          <label>PRODUCE<textarea id="gl_produce" class="reflection-box" placeholder="Fruits, veggies, herbs..."></textarea></label>
+          <label>DAIRY / ALT-DAIRY<textarea id="gl_dairy" class="reflection-box" placeholder="Milk, yogurt, cheese, plant milks..."></textarea></label>
+
+          <label>PROTEIN<textarea id="gl_protein" class="reflection-box" placeholder="Chicken, fish, tofu, beans..."></textarea></label>
+          <label>PANTRY / DRY GOODS<textarea id="gl_pantry" class="reflection-box" placeholder="Rice, pasta, oats, canned goods..."></textarea></label>
+
+          <label>FROZEN<textarea id="gl_frozen" class="reflection-box" placeholder="Frozen fruit, veggies, meals..."></textarea></label>
+          <label>BAKERY<textarea id="gl_bakery" class="reflection-box" placeholder="Bread, tortillas, snacks..."></textarea></label>
+
+          <label>VITAMINS / SUPPLEMENTS<textarea id="gl_vitamins" class="reflection-box" placeholder="D3, magnesium, probiotics..."></textarea></label>
+          <label>HOUSEHOLD / OTHER<textarea id="gl_other" class="reflection-box" placeholder="Paper goods, cleaners, misc..."></textarea></label>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= -->
     <!-- SCREEN: MONTHLY PLAN -->
     <!-- ================= -->
@@ -550,7 +582,6 @@
             </tr>
           </thead>
           <tbody>
-            <!-- 5 rows -->
             <tr>
               <td><textarea id="cal_1" class="cal-cell"></textarea></td>
               <td><textarea id="cal_2" class="cal-cell"></textarea></td>
@@ -761,7 +792,6 @@
             </tr>
           </thead>
           <tbody>
-            <!-- 10 items -->
             <tr>
               <td><input id="t_item1" class="cell-input" placeholder="Item 1"/></td>
               <td><input id="t1w1" class="tiny"/></td><td><input id="t1w2" class="tiny"/></td><td><input id="t1w3" class="tiny"/></td><td><input id="t1w4" class="tiny"/></td>
