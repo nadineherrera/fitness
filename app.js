@@ -8,19 +8,25 @@ const screens = {
   monthlyReview: document.getElementById("screen-monthlyReview"),
   products: document.getElementById("screen-products"),
   tracker: document.getElementById("screen-tracker"),
+
+  // ✅ NEW: Grocery List screen
+  grocery: document.getElementById("screen-grocery"),
 };
 
-function showScreen(key){
-  Object.values(screens).forEach(s => s.classList.remove("visible"));
-  screens[key].classList.add("visible");
-  tabs.forEach(t => t.classList.toggle("active", t.dataset.screen === key));
-  window.scrollTo({top:0, behavior:"instant"});
+function showScreen(key) {
+  Object.values(screens).forEach((s) => s && s.classList.remove("visible"));
+  if (screens[key]) screens[key].classList.add("visible");
+
+  tabs.forEach((t) => t.classList.toggle("active", t.dataset.screen === key));
+  window.scrollTo({ top: 0, behavior: "instant" });
 }
 
-tabs.forEach(t => t.addEventListener("click", () => showScreen(t.dataset.screen)));
+tabs.forEach((t) =>
+  t.addEventListener("click", () => showScreen(t.dataset.screen))
+);
 
 // ---------- Local Save / Load ----------
-function collectFormState(){
+function collectFormState() {
   const fields = document.querySelectorAll("input, textarea, select");
   const data = {};
   fields.forEach((el) => {
@@ -32,7 +38,7 @@ function collectFormState(){
   return data;
 }
 
-function applyFormState(data){
+function applyFormState(data) {
   const fields = document.querySelectorAll("input, textarea, select");
   fields.forEach((el) => {
     const id = el.id;
@@ -65,3 +71,6 @@ document.getElementById("clearBtn")?.addEventListener("click", () => {
 document.getElementById("printBtn")?.addEventListener("click", () => {
   window.print();
 });
+
+// ✅ Optional: keep default screen consistent on refresh
+showScreen("starting");
