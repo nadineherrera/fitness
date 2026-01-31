@@ -206,7 +206,7 @@ textarea{ font-family:inherit; }
 .date-row{color:var(--muted); font-weight:900}
 
 /* ===================================================== */
-/* Goals screen (match your reference image)              */
+/* Goals screen (fix label spacing + line alignment)      */
 /* ===================================================== */
 
 .goals-stack{
@@ -232,11 +232,11 @@ textarea{ font-family:inherit; }
   border-bottom:1px solid var(--grid);
 }
 
-/* ✅ Shift DEADLINE/REWARD left by narrowing the right column */
+/* ✅ Right column sized like reference */
 .goal-grid{
   display:grid;
-  grid-template-columns: 1fr 96px;     /* was 140px */
-  grid-template-rows: 170px 120px;
+  grid-template-columns: 1fr 120px;   /* gives room for writing in deadline/reward */
+  grid-template-rows: 170px 120px;    /* main split (top / why row) */
 }
 
 .goal-main{
@@ -246,11 +246,12 @@ textarea{ font-family:inherit; }
   background:#fff;
 }
 
+/* ✅ Make side rows match the main rows so divider lines align perfectly */
 .goal-side{
   grid-column:2;
   grid-row:1 / span 2;
   display:grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 170px 120px;    /* was 1fr 1fr (caused misaligned divider) */
   border-left:1px solid var(--grid);
 }
 
@@ -275,10 +276,11 @@ textarea{ font-family:inherit; }
   background:#fff;
 }
 
+/* ✅ Move DEADLINE / REWARD labels left so you have blank writing space to the right */
 .vlabel{
   position:absolute;
   top:50%;
-  left:50%;
+  left:22px; /* was centered; this pushes it toward the left edge like your reference */
   transform:translate(-50%,-50%) rotate(-90deg);
   font-size:10px;
   letter-spacing:.14em;
@@ -291,7 +293,7 @@ textarea{ font-family:inherit; }
 }
 .vlabel.small{font-size:9px}
 
-/* ✅ PURE BLANK writing areas: remove all ruled-line backgrounds */
+/* ✅ PURE BLANK writing areas */
 .goal-main,
 .bottom-text,
 .side-text{
@@ -313,9 +315,12 @@ textarea{ font-family:inherit; }
   background:transparent;
 }
 
-.side-text{ padding:12px 12px; }
+/* ✅ Give room for vertical labels (creates clear blank space to the right of the words) */
+.side-text{
+  padding:14px 12px 14px 44px; /* left padding creates a dedicated label gutter */
+}
 
-/* ✅ Keep tint ONLY for Reward Achieved (your reward textarea already has class="tint") */
+/* ✅ Keep tint ONLY for Reward Achieved */
 .side-text.tint{ background:rgba(108,116,168,.10); }
 
 /* ✅ Remove tint from WHY I WANT IT writing area */
