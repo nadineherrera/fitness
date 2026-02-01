@@ -422,7 +422,10 @@ textarea{ font-family:inherit; }
 .side-text.tint{ background:rgba(108,116,168,.10); }
 .bottom-text{ background:transparent !important; }
 
-/* Workout screen */
+/* ========================= */
+/* Workout screen (UPDATED)  */
+/* ========================= */
+
 .label-row{display:flex; align-items:center; gap:8px; margin-bottom:10px}
 .icon{color:var(--muted)}
 .label{
@@ -450,46 +453,79 @@ textarea{ font-family:inherit; }
   background:#fff
 }
 
+/* Header row */
 .workout-table th{
   background:var(--purple);
   color:#fff;
   font-size:11px;
-  letter-spacing:.06em;
+  letter-spacing:.10em;
   font-weight:900;
+  text-transform:uppercase;
   text-align:center;
-  height:28px
+  height:34px;
 }
-.workout-table td{height:26px}
 
-/* Subhead: keep rep/weight hint area, but make EXERCISE subcell white like reference */
+/* Subheader row (REPS/WEIGHT) */
 .workout-table .subhead th{
-  background:var(--purpleSoft);
+  background:#eef0f7; /* slightly softer than purpleSoft */
   color:var(--muted);
-  font-size:9px;
-  letter-spacing:.08em;
+  font-size:10px;
+  letter-spacing:.12em;
   font-weight:900;
+  text-transform:uppercase;
+  height:40px;
 }
 .workout-table .subhead th:first-child{
   background:#fff;
 }
 
-/* ✅ Reference-style striping:
-   - EXERCISE column stays white (no zebra)
-   - SET columns alternate band color */
+/* Body cells: taller like reference */
+.workout-table td{
+  height:44px;
+  padding:0;
+  vertical-align:middle;
+}
+
+/* Exercise column always white */
 .workout-table tbody td:first-child{
   background:#fff !important;
+  position:relative;
 }
+
+/* Remove/override any decorative “slash” overlays if they exist */
+.workout-table tbody td:first-child::before,
+.workout-table tbody td:first-child::after{
+  content:none !important;
+  display:none !important;
+  background:none !important;
+}
+
+/* Set columns zebra striping (bands) */
 .workout-table tbody tr:nth-child(odd) td:not(:first-child){
   background:#fff;
 }
 .workout-table tbody tr:nth-child(even) td:not(:first-child){
-  background:var(--purpleSoft);
+  background:#eef0f7;
 }
 
-.subcell{text-align:left; padding:4px 6px !important}
-.subtxt{line-height:1.2}
-.col-ex{width:42%}
-.col-set{width:8.285%}
+/* Inputs inside workout table: more fill space */
+.workout-table .cell-input{
+  width:100%;
+  height:100%;
+  border:none;
+  outline:none;
+  background:transparent;
+  font-size:12px;
+  padding:10px 10px;
+}
+
+/* Subhead inner layout */
+.subcell{text-align:center; padding:0 !important}
+.subtxt{line-height:1.15}
+
+/* Column proportions closer to screenshot */
+.col-ex{width:46%}
+.col-set{width:7.714%}
 
 .split{
   display:grid;
