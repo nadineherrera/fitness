@@ -3,40 +3,47 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#111111" />
   <title>Planner App (Local)</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <header class="appbar">
-    <div class="brand">Planner App</div>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
 
-    <nav class="tabs" aria-label="Planner navigation">
-      <button class="tab active" data-screen="starting">Starting Point</button>
-      <button class="tab" data-screen="goals">Goals</button>
-      <button class="tab" data-screen="workout">Workout</button>
-      <button class="tab" data-screen="meals">Meals</button>
-      <button class="tab" data-screen="grocery">Grocery List</button>
-      <button class="tab" data-screen="monthlyPlan">Monthly Plan</button>
-      <button class="tab" data-screen="monthlyReview">Monthly Review</button>
-      <button class="tab" data-screen="products">Products</button>
-      <button class="tab" data-screen="tracker">Progress Tracker</button>
+  <header class="appbar">
+    <div class="brand" aria-label="App name">Planner App</div>
+
+    <nav class="tabs" aria-label="Planner navigation" role="tablist">
+      <button type="button" class="tab active" data-screen="starting" role="tab" aria-selected="true" aria-controls="screen-starting">Starting Point</button>
+      <button type="button" class="tab" data-screen="goals" role="tab" aria-selected="false" aria-controls="screen-goals">Goals</button>
+      <button type="button" class="tab" data-screen="workout" role="tab" aria-selected="false" aria-controls="screen-workout">Workout</button>
+      <button type="button" class="tab" data-screen="meals" role="tab" aria-selected="false" aria-controls="screen-meals">Meals</button>
+      <button type="button" class="tab" data-screen="grocery" role="tab" aria-selected="false" aria-controls="screen-grocery">Grocery List</button>
+      <button type="button" class="tab" data-screen="monthlyPlan" role="tab" aria-selected="false" aria-controls="screen-monthlyPlan">Monthly Plan</button>
+      <button type="button" class="tab" data-screen="monthlyReview" role="tab" aria-selected="false" aria-controls="screen-monthlyReview">Monthly Review</button>
+
+      <!-- NEW: Breathing Exercise screen -->
+      <button type="button" class="tab" data-screen="breathing" role="tab" aria-selected="false" aria-controls="screen-breathing">Breathing</button>
+
+      <button type="button" class="tab" data-screen="products" role="tab" aria-selected="false" aria-controls="screen-products">Products</button>
+      <button type="button" class="tab" data-screen="tracker" role="tab" aria-selected="false" aria-controls="screen-tracker">Progress Tracker</button>
     </nav>
 
-    <div class="app-actions">
-      <button id="printBtn" class="btn">Print</button>
-      <button id="saveBtn" class="btn primary">Save</button>
-      <button id="loadBtn" class="btn">Load</button>
-      <button id="clearBtn" class="btn danger">Clear</button>
+    <div class="app-actions" aria-label="App actions">
+      <button type="button" id="printBtn" class="btn">Print</button>
+      <button type="button" id="saveBtn" class="btn primary">Save</button>
+      <button type="button" id="loadBtn" class="btn">Load</button>
+      <button type="button" id="clearBtn" class="btn danger">Clear</button>
     </div>
   </header>
 
-  <main class="app">
+  <main id="mainContent" class="app">
 
     <!-- ================================ -->
     <!-- SCREEN: STARTING POINT & RESULTS -->
     <!-- ================================ -->
-    <section id="screen-starting" class="screen visible">
+    <section id="screen-starting" class="screen visible" role="tabpanel" tabindex="0" aria-label="Starting Point and Results">
       <div class="page">
         <header class="page-title-row">
           <div class="title">
@@ -51,11 +58,11 @@
           <div class="id-block">
             <div class="field">
               <span class="field-label">NAME:</span>
-              <input id="sp_name" class="line-input" />
+              <input id="sp_name" class="line-input" autocomplete="name" />
             </div>
             <div class="field">
               <span class="field-label">HEIGHT:</span>
-              <input id="sp_height" class="line-input" />
+              <input id="sp_height" class="line-input" inputmode="decimal" />
             </div>
 
             <div class="goal-area">
@@ -81,11 +88,11 @@
         </div>
 
         <div class="photo-row">
-          <div class="photo-box">
+          <div class="photo-box" aria-label="Before photo placeholder">
             <div class="camera-icon" aria-hidden="true"></div>
             <div class="photo-label">BEFORE</div>
           </div>
-          <div class="photo-box">
+          <div class="photo-box" aria-label="After photo placeholder">
             <div class="camera-icon" aria-hidden="true"></div>
             <div class="photo-label">AFTER</div>
           </div>
@@ -102,17 +109,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>NECK</td><td><input id="m_neck_cur" class="cell-input"/></td><td><input id="m_neck_res" class="cell-input"/></td></tr>
-            <tr><td>SHOULDERS</td><td><input id="m_shoulders_cur" class="cell-input"/></td><td><input id="m_shoulders_res" class="cell-input"/></td></tr>
-            <tr><td>CHEST</td><td><input id="m_chest_cur" class="cell-input"/></td><td><input id="m_chest_res" class="cell-input"/></td></tr>
-            <tr><td>BICEP</td><td><input id="m_bicep_cur" class="cell-input"/></td><td><input id="m_bicep_res" class="cell-input"/></td></tr>
-            <tr><td>WAIST</td><td><input id="m_waist_cur" class="cell-input"/></td><td><input id="m_waist_res" class="cell-input"/></td></tr>
-            <tr><td>HIPS</td><td><input id="m_hips_cur" class="cell-input"/></td><td><input id="m_hips_res" class="cell-input"/></td></tr>
-            <tr><td>THIGH</td><td><input id="m_thigh_cur" class="cell-input"/></td><td><input id="m_thigh_res" class="cell-input"/></td></tr>
-            <tr><td>CALF</td><td><input id="m_calf_cur" class="cell-input"/></td><td><input id="m_calf_res" class="cell-input"/></td></tr>
-            <tr><td>WEIGHT</td><td><input id="m_weight_cur" class="cell-input"/></td><td><input id="m_weight_res" class="cell-input"/></td></tr>
-            <tr><td>BODY FAT %</td><td><input id="m_bfat_cur" class="cell-input"/></td><td><input id="m_bfat_res" class="cell-input"/></td></tr>
-            <tr><td class="date-row">DATE</td><td><input id="m_date_cur" class="cell-input"/></td><td><input id="m_date_res" class="cell-input"/></td></tr>
+            <tr><td>NECK</td><td><input id="m_neck_cur" class="cell-input" inputmode="decimal"/></td><td><input id="m_neck_res" class="cell-input" inputmode="decimal"/></td></tr>
+            <tr><td>SHOULDERS</td><td><input id="m_shoulders_cur" class="cell-input" inputmode="decimal"/></td><td><input id="m_shoulders_res" class="cell-input" inputmode="decimal"/></td></tr>
+            <tr><td>CHEST</td><td><input id="m_chest_cur" class="cell-input" inputmode="decimal"/></td><td><input id="m_chest_res" class="cell-input" inputmode="decimal"/></td></tr>
+            <tr><td>BICEP</td><td><input id="m_bicep_cur" class="cell-input" inputmode="decimal"/></td><td><input id="m_bicep_res" class="cell-input" inputmode="decimal"/></td></tr>
+            <tr><td>WAIST</td><td><input id="m_waist_cur" class="cell-input" inputmode="decimal"/></td><td><input id="m_waist_res" class="cell-input" inputmode="decimal"/></td></tr>
+            <tr><td>HIPS</td><td><input id="m_hips_cur" class="cell-input" inputmode="decimal"/></td><td><input id="m_hips_res" class="cell-input" inputmode="decimal"/></td></tr>
+            <tr><td>THIGH</td><td><input id="m_thigh_cur" class="cell-input" inputmode="decimal"/></td><td><input id="m_thigh_res" class="cell-input" inputmode="decimal"/></td></tr>
+            <tr><td>CALF</td><td><input id="m_calf_cur" class="cell-input" inputmode="decimal"/></td><td><input id="m_calf_res" class="cell-input" inputmode="decimal"/></td></tr>
+            <tr><td>WEIGHT</td><td><input id="m_weight_cur" class="cell-input" inputmode="decimal"/></td><td><input id="m_weight_res" class="cell-input" inputmode="decimal"/></td></tr>
+            <tr><td>BODY FAT %</td><td><input id="m_bfat_cur" class="cell-input" inputmode="decimal"/></td><td><input id="m_bfat_res" class="cell-input" inputmode="decimal"/></td></tr>
+            <tr><td class="date-row">DATE</td><td><input id="m_date_cur" class="cell-input" /></td><td><input id="m_date_res" class="cell-input" /></td></tr>
           </tbody>
         </table>
       </div>
@@ -121,7 +128,7 @@
     <!-- ================= -->
     <!-- SCREEN: GOALS      -->
     <!-- ================= -->
-    <section id="screen-goals" class="screen">
+    <section id="screen-goals" class="screen" role="tabpanel" tabindex="0" aria-label="Goals">
       <div class="page">
         <header class="page-title-row right">
           <div class="title">
@@ -131,7 +138,6 @@
         </header>
 
         <div class="goals-stack">
-
           <!-- Goal template x5 -->
           <article class="goal-card">
             <div class="goal-header">GOAL #1</div>
@@ -305,12 +311,12 @@
     <!-- ================= -->
     <!-- SCREEN: WORKOUT    -->
     <!-- ================= -->
-    <section id="screen-workout" class="screen">
+    <section id="screen-workout" class="screen" role="tabpanel" tabindex="0" aria-label="Workout">
       <div class="page">
         <header class="topline">
           <div class="left">
             <div class="label-row">
-              <span class="icon">◀</span>
+              <span class="icon" aria-hidden="true">◀</span>
               <span class="label">DAY &amp; DATE</span>
               <input id="w_date" class="line-input wide-line" />
             </div>
@@ -325,7 +331,7 @@
             </div>
           </div>
 
-          <div class="right">
+          <div class="right" aria-label="Workout check circles">
             <div class="circle-row">
               <span class="circle"></span><span class="circle"></span><span class="circle"></span>
               <span class="circle"></span><span class="circle"></span><span class="circle"></span>
@@ -358,7 +364,6 @@
               </tr>
             </thead>
             <tbody>
-              <!-- 13 rows -->
               <tr><td><input id="ex1" class="cell-input"/></td><td><input id="s1_1" class="cell-input"/></td><td><input id="s2_1" class="cell-input"/></td><td><input id="s3_1" class="cell-input"/></td><td><input id="s4_1" class="cell-input"/></td><td><input id="s5_1" class="cell-input"/></td><td><input id="s6_1" class="cell-input"/></td><td><input id="s7_1" class="cell-input"/></td></tr>
               <tr><td><input id="ex2" class="cell-input"/></td><td><input id="s1_2" class="cell-input"/></td><td><input id="s2_2" class="cell-input"/></td><td><input id="s3_2" class="cell-input"/></td><td><input id="s4_2" class="cell-input"/></td><td><input id="s5_2" class="cell-input"/></td><td><input id="s6_2" class="cell-input"/></td><td><input id="s7_2" class="cell-input"/></td></tr>
               <tr><td><input id="ex3" class="cell-input"/></td><td><input id="s1_3" class="cell-input"/></td><td><input id="s2_3" class="cell-input"/></td><td><input id="s3_3" class="cell-input"/></td><td><input id="s4_3" class="cell-input"/></td><td><input id="s5_3" class="cell-input"/></td><td><input id="s6_3" class="cell-input"/></td><td><input id="s7_3" class="cell-input"/></td></tr>
@@ -402,7 +407,7 @@
           <div class="sat-title">WORKOUT SATISFACTION RATE</div>
           <div class="sat-scale">
             <span>0%</span>
-            <div class="ticks">
+            <div class="ticks" aria-hidden="true">
               <span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span>
               <span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span>
             </div>
@@ -416,26 +421,26 @@
     <!-- ================= -->
     <!-- SCREEN: MEALS      -->
     <!-- ================= -->
-    <section id="screen-meals" class="screen">
+    <section id="screen-meals" class="screen" role="tabpanel" tabindex="0" aria-label="Meals">
       <div class="page">
         <div class="wellness-grid">
           <div class="wellness-box">
-            <div class="w-row"><span class="w-label">WEIGHT:</span><input id="ml_weight" class="w-input" /></div>
+            <div class="w-row"><span class="w-label">WEIGHT:</span><input id="ml_weight" class="w-input" inputmode="decimal" /></div>
             <div class="w-row"><span class="w-label">SLEEP:</span><input id="ml_sleep" class="w-input" /></div>
             <div class="w-row"><span class="w-label">FRUIT:</span><input id="ml_fruit" class="w-input" /></div>
           </div>
           <div class="wellness-box">
-            <div class="w-row"><span class="w-label">BODY FAT %:</span><input id="ml_bfat" class="w-input" /></div>
+            <div class="w-row"><span class="w-label">BODY FAT %:</span><input id="ml_bfat" class="w-input" inputmode="decimal" /></div>
             <div class="w-row"><span class="w-label">CAFFEIN. DRINKS:</span><input id="ml_caff" class="w-input" /></div>
             <div class="w-row"><span class="w-label">VEGGIES:</span><input id="ml_veg" class="w-input" /></div>
           </div>
           <div class="wellness-box wide">
             <div class="mood-row">
               <span class="w-label">MOOD FOR TODAY</span>
-              <span class="mood">☺</span><span class="mood">🙂</span><span class="mood">😐</span><span class="mood">🙁</span><span class="mood">☹</span>
+              <span class="mood" aria-hidden="true">☺</span><span class="mood" aria-hidden="true">🙂</span><span class="mood" aria-hidden="true">😐</span><span class="mood" aria-hidden="true">🙁</span><span class="mood" aria-hidden="true">☹</span>
             </div>
-            <div class="meter-row"><span class="w-label">ENERGY</span><input id="ml_energy" class="meter-input" placeholder="1–5" /></div>
-            <div class="meter-row"><span class="w-label">ACTIVITY</span><input id="ml_activity" class="meter-input" placeholder="1–10" /></div>
+            <div class="meter-row"><span class="w-label">ENERGY</span><input id="ml_energy" class="meter-input" placeholder="1–5" inputmode="numeric" /></div>
+            <div class="meter-row"><span class="w-label">ACTIVITY</span><input id="ml_activity" class="meter-input" placeholder="1–10" inputmode="numeric" /></div>
           </div>
           <div class="wellness-box water">
             <div class="w-label">WATER</div>
@@ -472,7 +477,6 @@
               </tr>
             </thead>
             <tbody>
-              <!-- Breakfast block -->
               <tr class="meal-label">
                 <td rowspan="6"><span class="vertical">BREAKFAST</span></td>
                 <td><input id="b_p1" class="cell-input"/></td><td><input id="b_s1" class="cell-input"/></td><td><input id="b_c1" class="cell-input"/></td><td><input id="b_pr1" class="cell-input"/></td><td><input id="b_f1" class="cell-input"/></td><td><input id="b_cb1" class="cell-input"/></td>
@@ -483,7 +487,6 @@
               <tr class="subtotal"><td>SUBTOTAL:</td><td></td><td></td><td></td><td></td><td></td></tr>
               <tr class="gap"><td colspan="6"></td></tr>
 
-              <!-- Lunch block -->
               <tr class="meal-label">
                 <td rowspan="6"><span class="vertical">LUNCH</span></td>
                 <td><input id="l_p1" class="cell-input"/></td><td><input id="l_s1" class="cell-input"/></td><td><input id="l_c1" class="cell-input"/></td><td><input id="l_pr1" class="cell-input"/></td><td><input id="l_f1" class="cell-input"/></td><td><input id="l_cb1" class="cell-input"/></td>
@@ -494,7 +497,6 @@
               <tr class="subtotal"><td>SUBTOTAL:</td><td></td><td></td><td></td><td></td><td></td></tr>
               <tr class="gap"><td colspan="6"></td></tr>
 
-              <!-- Dinner block -->
               <tr class="meal-label">
                 <td rowspan="6"><span class="vertical">DINNER</span></td>
                 <td><input id="d_p1" class="cell-input"/></td><td><input id="d_s1" class="cell-input"/></td><td><input id="d_c1" class="cell-input"/></td><td><input id="d_pr1" class="cell-input"/></td><td><input id="d_f1" class="cell-input"/></td><td><input id="d_cb1" class="cell-input"/></td>
@@ -505,7 +507,6 @@
               <tr class="subtotal"><td>SUBTOTAL:</td><td></td><td></td><td></td><td></td><td></td></tr>
               <tr class="gap"><td colspan="6"></td></tr>
 
-              <!-- Snacks block -->
               <tr class="meal-label">
                 <td rowspan="5"><span class="vertical">SNACKS</span></td>
                 <td><input id="s_p1" class="cell-input"/></td><td><input id="s_s1" class="cell-input"/></td><td><input id="s_c1" class="cell-input"/></td><td><input id="s_pr1" class="cell-input"/></td><td><input id="s_f1" class="cell-input"/></td><td><input id="s_cb1" class="cell-input"/></td>
@@ -532,19 +533,17 @@
     <!-- ========================= -->
     <!-- SCREEN: GROCERY LIST      -->
     <!-- ========================= -->
-    <section id="screen-grocery" class="screen">
+    <section id="screen-grocery" class="screen" role="tabpanel" tabindex="0" aria-label="Grocery List">
       <div class="page">
         <div class="title center-title">
           <span class="title-strong">GROCERY LIST</span>
         </div>
 
-        <!-- Optional top meta row -->
         <div class="month-meta">
           <div class="field"><span class="field-label">WEEK OF:</span><input id="gl_weekof" class="line-input"/></div>
           <div class="field"><span class="field-label">STORE:</span><input id="gl_store" class="line-input"/></div>
         </div>
 
-        <!-- Simple sectioned list: uses your existing .reflection styles for consistency -->
         <div class="reflection">
           <label>PRODUCE<textarea id="gl_produce" class="reflection-box" placeholder="Fruits, veggies, herbs..."></textarea></label>
           <label>DAIRY / ALT-DAIRY<textarea id="gl_dairy" class="reflection-box" placeholder="Milk, yogurt, cheese, plant milks..."></textarea></label>
@@ -564,7 +563,7 @@
     <!-- ================= -->
     <!-- SCREEN: MONTHLY PLAN -->
     <!-- ================= -->
-    <section id="screen-monthlyPlan" class="screen">
+    <section id="screen-monthlyPlan" class="screen" role="tabpanel" tabindex="0" aria-label="Monthly Plan">
       <div class="page">
         <div class="title center-title">
           <span class="title-strong">MONTHLY PLAN</span>
@@ -659,7 +658,7 @@
     <!-- ================= -->
     <!-- SCREEN: MONTHLY REVIEW -->
     <!-- ================= -->
-    <section id="screen-monthlyReview" class="screen">
+    <section id="screen-monthlyReview" class="screen" role="tabpanel" tabindex="0" aria-label="Monthly Review">
       <div class="page">
         <div class="title center-title">
           <span class="title-strong">MONTHLY REVIEW</span>
@@ -671,7 +670,7 @@
         </div>
 
         <div class="review-grid">
-          <div class="photo-box small">
+          <div class="photo-box small" aria-label="Progress photo placeholder">
             <div class="camera-icon" aria-hidden="true"></div>
             <div class="photo-label">PROGRESS PHOTO</div>
           </div>
@@ -682,10 +681,10 @@
                 <tr><th></th><th>THIS MONTH</th><th>LAST MONTH</th></tr>
               </thead>
               <tbody>
-                <tr><td>WEIGHT</td><td><input id="mr_w_this" class="cell-input"/></td><td><input id="mr_w_last" class="cell-input"/></td></tr>
-                <tr><td>WAIST</td><td><input id="mr_waist_this" class="cell-input"/></td><td><input id="mr_waist_last" class="cell-input"/></td></tr>
-                <tr><td>HIPS</td><td><input id="mr_hips_this" class="cell-input"/></td><td><input id="mr_hips_last" class="cell-input"/></td></tr>
-                <tr><td>BODY FAT %</td><td><input id="mr_bfat_this" class="cell-input"/></td><td><input id="mr_bfat_last" class="cell-input"/></td></tr>
+                <tr><td>WEIGHT</td><td><input id="mr_w_this" class="cell-input" inputmode="decimal"/></td><td><input id="mr_w_last" class="cell-input" inputmode="decimal"/></td></tr>
+                <tr><td>WAIST</td><td><input id="mr_waist_this" class="cell-input" inputmode="decimal"/></td><td><input id="mr_waist_last" class="cell-input" inputmode="decimal"/></td></tr>
+                <tr><td>HIPS</td><td><input id="mr_hips_this" class="cell-input" inputmode="decimal"/></td><td><input id="mr_hips_last" class="cell-input" inputmode="decimal"/></td></tr>
+                <tr><td>BODY FAT %</td><td><input id="mr_bfat_this" class="cell-input" inputmode="decimal"/></td><td><input id="mr_bfat_last" class="cell-input" inputmode="decimal"/></td></tr>
               </tbody>
             </table>
 
@@ -739,10 +738,61 @@
       </div>
     </section>
 
+    <!-- ============================= -->
+    <!-- SCREEN: BREATHING EXERCISE    -->
+    <!-- ============================= -->
+    <section id="screen-breathing" class="screen" role="tabpanel" tabindex="0" aria-label="Breathing Exercise">
+      <div class="page">
+        <div class="title center-title">
+          <span class="title-strong">BREATHING EXERCISE</span>
+        </div>
+
+        <!-- Hook these IDs in your JS however you like -->
+        <div class="breathing-wrap">
+          <div class="breathing-card">
+            <div class="breathing-top">
+              <div class="box-title">Breathe With Me</div>
+              <div class="breathing-meta">
+                <span>Mode:</span>
+                <span id="breathModeLabel">Box Breathing</span>
+              </div>
+            </div>
+
+            <div class="breathing-center">
+              <div id="breathBubble" class="breath-bubble" aria-label="Breathing bubble" role="img"></div>
+              <div class="breathing-readout">
+                <div id="breathPhase" class="breath-phase">Ready</div>
+                <div id="breathCountdown" class="breath-countdown">0</div>
+              </div>
+            </div>
+
+            <div class="breathing-controls">
+              <button type="button" id="breathToggleBtn" class="btn primary">Start</button>
+              <button type="button" id="breathResetBtn" class="btn">Reset</button>
+
+              <label class="breath-select">
+                <span class="field-label">PATTERN:</span>
+                <select id="breathPattern" class="line-input">
+                  <option value="box" selected>Box (4–4–4–4)</option>
+                  <option value="478">4–7–8</option>
+                  <option value="calm">Calm (4–6)</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="breathing-notes">
+              <div class="card-title center">NOTES</div>
+              <textarea id="breath_notes" class="notes-area" placeholder="How did this feel? Anything you noticed?"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= -->
     <!-- SCREEN: PRODUCTS    -->
     <!-- ================= -->
-    <section id="screen-products" class="screen">
+    <section id="screen-products" class="screen" role="tabpanel" tabindex="0" aria-label="Products">
       <div class="page">
         <div class="title center-title"><span class="title-strong">PRODUCTS</span></div>
 
@@ -778,7 +828,7 @@
     <!-- ========================= -->
     <!-- SCREEN: PROGRESS TRACKER  -->
     <!-- ========================= -->
-    <section id="screen-tracker" class="screen">
+    <section id="screen-tracker" class="screen" role="tabpanel" tabindex="0" aria-label="Progress Tracker">
       <div class="page">
         <div class="title center-title"><span class="title-strong">PROGRESS TRACKER</span></div>
         <div class="subcap">Weeks 1–14</div>
@@ -878,6 +928,7 @@
 
   </main>
 
-  <script src="app.js"></script>
+  <!-- Keep as classic script since your current file uses app.js -->
+  <script src="app.js" defer></script>
 </body>
 </html>
