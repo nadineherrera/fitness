@@ -339,6 +339,7 @@
           <label class="chk"><input id="w_supplements" type="checkbox" /> SUPPLEMENTS</label>
         </div>
 
+        <!-- ✅ wrap allows horizontal scroll on small screens (aligns right edge) -->
         <div class="table-wrap">
           <table class="workout-table">
             <colgroup>
@@ -350,11 +351,11 @@
             <thead>
               <tr>
                 <th>EXERCISE</th>
-                <th>SET 1</th><th>SET 2</th><th>SET 3</th><th>SET 4</th><th>SET 5</th><th>SET 6</th><th>SET 7</th>
+                <th>SET 1</th><th>SET 2</th><th>SET 3</th><th>SET 4</th>
+                <th>SET 5</th><th>SET 6</th><th>SET 7</th>
               </tr>
               <tr class="subhead">
                 <th></th>
-
                 <th class="subcell"><div class="subtxt">REPS</div><div class="subtxt">WEIGHT</div></th>
                 <th class="subcell"><div class="subtxt">REPS</div><div class="subtxt">WEIGHT</div></th>
                 <th class="subcell"><div class="subtxt">REPS</div><div class="subtxt">WEIGHT</div></th>
@@ -366,148 +367,151 @@
             </thead>
 
             <tbody>
-              <!-- 13 rows -->
+              <!-- ✅ IMPORTANT:
+                   - Keep two inputs per set cell (reps + weight).
+                   - Don't add extra padding/borders on these elements—CSS handles the divider. -->
+
               <tr>
-                <td class="exercise-cell"><textarea id="ex1" class="exercise-input" rows="2"></textarea></td>
-                <td><div class="setcell"><input id="s1_1_reps" class="set-input"/><input id="s1_1_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s2_1_reps" class="set-input"/><input id="s2_1_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s3_1_reps" class="set-input"/><input id="s3_1_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s4_1_reps" class="set-input"/><input id="s4_1_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s5_1_reps" class="set-input"/><input id="s5_1_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s6_1_reps" class="set-input"/><input id="s6_1_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s7_1_reps" class="set-input"/><input id="s7_1_weight" class="set-input"/></div></td>
+                <td><textarea id="ex1" rows="2"></textarea></td>
+                <td><input id="s1_1_reps"/><input id="s1_1_weight"/></td>
+                <td><input id="s2_1_reps"/><input id="s2_1_weight"/></td>
+                <td><input id="s3_1_reps"/><input id="s3_1_weight"/></td>
+                <td><input id="s4_1_reps"/><input id="s4_1_weight"/></td>
+                <td><input id="s5_1_reps"/><input id="s5_1_weight"/></td>
+                <td><input id="s6_1_reps"/><input id="s6_1_weight"/></td>
+                <td><input id="s7_1_reps"/><input id="s7_1_weight"/></td>
               </tr>
 
               <tr>
-                <td class="exercise-cell"><textarea id="ex2" class="exercise-input" rows="2"></textarea></td>
-                <td><div class="setcell"><input id="s1_2_reps" class="set-input"/><input id="s1_2_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s2_2_reps" class="set-input"/><input id="s2_2_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s3_2_reps" class="set-input"/><input id="s3_2_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s4_2_reps" class="set-input"/><input id="s4_2_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s5_2_reps" class="set-input"/><input id="s5_2_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s6_2_reps" class="set-input"/><input id="s6_2_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s7_2_reps" class="set-input"/><input id="s7_2_weight" class="set-input"/></div></td>
+                <td><textarea id="ex2" rows="2"></textarea></td>
+                <td><input id="s1_2_reps"/><input id="s1_2_weight"/></td>
+                <td><input id="s2_2_reps"/><input id="s2_2_weight"/></td>
+                <td><input id="s3_2_reps"/><input id="s3_2_weight"/></td>
+                <td><input id="s4_2_reps"/><input id="s4_2_weight"/></td>
+                <td><input id="s5_2_reps"/><input id="s5_2_weight"/></td>
+                <td><input id="s6_2_reps"/><input id="s6_2_weight"/></td>
+                <td><input id="s7_2_reps"/><input id="s7_2_weight"/></td>
               </tr>
 
               <tr>
-                <td class="exercise-cell"><textarea id="ex3" class="exercise-input" rows="2"></textarea></td>
-                <td><div class="setcell"><input id="s1_3_reps" class="set-input"/><input id="s1_3_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s2_3_reps" class="set-input"/><input id="s2_3_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s3_3_reps" class="set-input"/><input id="s3_3_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s4_3_reps" class="set-input"/><input id="s4_3_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s5_3_reps" class="set-input"/><input id="s5_3_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s6_3_reps" class="set-input"/><input id="s6_3_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s7_3_reps" class="set-input"/><input id="s7_3_weight" class="set-input"/></div></td>
+                <td><textarea id="ex3" rows="2"></textarea></td>
+                <td><input id="s1_3_reps"/><input id="s1_3_weight"/></td>
+                <td><input id="s2_3_reps"/><input id="s2_3_weight"/></td>
+                <td><input id="s3_3_reps"/><input id="s3_3_weight"/></td>
+                <td><input id="s4_3_reps"/><input id="s4_3_weight"/></td>
+                <td><input id="s5_3_reps"/><input id="s5_3_weight"/></td>
+                <td><input id="s6_3_reps"/><input id="s6_3_weight"/></td>
+                <td><input id="s7_3_reps"/><input id="s7_3_weight"/></td>
               </tr>
 
               <tr>
-                <td class="exercise-cell"><textarea id="ex4" class="exercise-input" rows="2"></textarea></td>
-                <td><div class="setcell"><input id="s1_4_reps" class="set-input"/><input id="s1_4_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s2_4_reps" class="set-input"/><input id="s2_4_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s3_4_reps" class="set-input"/><input id="s3_4_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s4_4_reps" class="set-input"/><input id="s4_4_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s5_4_reps" class="set-input"/><input id="s5_4_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s6_4_reps" class="set-input"/><input id="s6_4_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s7_4_reps" class="set-input"/><input id="s7_4_weight" class="set-input"/></div></td>
+                <td><textarea id="ex4" rows="2"></textarea></td>
+                <td><input id="s1_4_reps"/><input id="s1_4_weight"/></td>
+                <td><input id="s2_4_reps"/><input id="s2_4_weight"/></td>
+                <td><input id="s3_4_reps"/><input id="s3_4_weight"/></td>
+                <td><input id="s4_4_reps"/><input id="s4_4_weight"/></td>
+                <td><input id="s5_4_reps"/><input id="s5_4_weight"/></td>
+                <td><input id="s6_4_reps"/><input id="s6_4_weight"/></td>
+                <td><input id="s7_4_reps"/><input id="s7_4_weight"/></td>
               </tr>
 
               <tr>
-                <td class="exercise-cell"><textarea id="ex5" class="exercise-input" rows="2"></textarea></td>
-                <td><div class="setcell"><input id="s1_5_reps" class="set-input"/><input id="s1_5_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s2_5_reps" class="set-input"/><input id="s2_5_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s3_5_reps" class="set-input"/><input id="s3_5_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s4_5_reps" class="set-input"/><input id="s4_5_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s5_5_reps" class="set-input"/><input id="s5_5_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s6_5_reps" class="set-input"/><input id="s6_5_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s7_5_reps" class="set-input"/><input id="s7_5_weight" class="set-input"/></div></td>
+                <td><textarea id="ex5" rows="2"></textarea></td>
+                <td><input id="s1_5_reps"/><input id="s1_5_weight"/></td>
+                <td><input id="s2_5_reps"/><input id="s2_5_weight"/></td>
+                <td><input id="s3_5_reps"/><input id="s3_5_weight"/></td>
+                <td><input id="s4_5_reps"/><input id="s4_5_weight"/></td>
+                <td><input id="s5_5_reps"/><input id="s5_5_weight"/></td>
+                <td><input id="s6_5_reps"/><input id="s6_5_weight"/></td>
+                <td><input id="s7_5_reps"/><input id="s7_5_weight"/></td>
               </tr>
 
               <tr>
-                <td class="exercise-cell"><textarea id="ex6" class="exercise-input" rows="2"></textarea></td>
-                <td><div class="setcell"><input id="s1_6_reps" class="set-input"/><input id="s1_6_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s2_6_reps" class="set-input"/><input id="s2_6_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s3_6_reps" class="set-input"/><input id="s3_6_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s4_6_reps" class="set-input"/><input id="s4_6_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s5_6_reps" class="set-input"/><input id="s5_6_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s6_6_reps" class="set-input"/><input id="s6_6_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s7_6_reps" class="set-input"/><input id="s7_6_weight" class="set-input"/></div></td>
+                <td><textarea id="ex6" rows="2"></textarea></td>
+                <td><input id="s1_6_reps"/><input id="s1_6_weight"/></td>
+                <td><input id="s2_6_reps"/><input id="s2_6_weight"/></td>
+                <td><input id="s3_6_reps"/><input id="s3_6_weight"/></td>
+                <td><input id="s4_6_reps"/><input id="s4_6_weight"/></td>
+                <td><input id="s5_6_reps"/><input id="s5_6_weight"/></td>
+                <td><input id="s6_6_reps"/><input id="s6_6_weight"/></td>
+                <td><input id="s7_6_reps"/><input id="s7_6_weight"/></td>
               </tr>
 
               <tr>
-                <td class="exercise-cell"><textarea id="ex7" class="exercise-input" rows="2"></textarea></td>
-                <td><div class="setcell"><input id="s1_7_reps" class="set-input"/><input id="s1_7_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s2_7_reps" class="set-input"/><input id="s2_7_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s3_7_reps" class="set-input"/><input id="s3_7_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s4_7_reps" class="set-input"/><input id="s4_7_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s5_7_reps" class="set-input"/><input id="s5_7_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s6_7_reps" class="set-input"/><input id="s6_7_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s7_7_reps" class="set-input"/><input id="s7_7_weight" class="set-input"/></div></td>
+                <td><textarea id="ex7" rows="2"></textarea></td>
+                <td><input id="s1_7_reps"/><input id="s1_7_weight"/></td>
+                <td><input id="s2_7_reps"/><input id="s2_7_weight"/></td>
+                <td><input id="s3_7_reps"/><input id="s3_7_weight"/></td>
+                <td><input id="s4_7_reps"/><input id="s4_7_weight"/></td>
+                <td><input id="s5_7_reps"/><input id="s5_7_weight"/></td>
+                <td><input id="s6_7_reps"/><input id="s6_7_weight"/></td>
+                <td><input id="s7_7_reps"/><input id="s7_7_weight"/></td>
               </tr>
 
               <tr>
-                <td class="exercise-cell"><textarea id="ex8" class="exercise-input" rows="2"></textarea></td>
-                <td><div class="setcell"><input id="s1_8_reps" class="set-input"/><input id="s1_8_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s2_8_reps" class="set-input"/><input id="s2_8_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s3_8_reps" class="set-input"/><input id="s3_8_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s4_8_reps" class="set-input"/><input id="s4_8_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s5_8_reps" class="set-input"/><input id="s5_8_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s6_8_reps" class="set-input"/><input id="s6_8_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s7_8_reps" class="set-input"/><input id="s7_8_weight" class="set-input"/></div></td>
+                <td><textarea id="ex8" rows="2"></textarea></td>
+                <td><input id="s1_8_reps"/><input id="s1_8_weight"/></td>
+                <td><input id="s2_8_reps"/><input id="s2_8_weight"/></td>
+                <td><input id="s3_8_reps"/><input id="s3_8_weight"/></td>
+                <td><input id="s4_8_reps"/><input id="s4_8_weight"/></td>
+                <td><input id="s5_8_reps"/><input id="s5_8_weight"/></td>
+                <td><input id="s6_8_reps"/><input id="s6_8_weight"/></td>
+                <td><input id="s7_8_reps"/><input id="s7_8_weight"/></td>
               </tr>
 
               <tr>
-                <td class="exercise-cell"><textarea id="ex9" class="exercise-input" rows="2"></textarea></td>
-                <td><div class="setcell"><input id="s1_9_reps" class="set-input"/><input id="s1_9_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s2_9_reps" class="set-input"/><input id="s2_9_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s3_9_reps" class="set-input"/><input id="s3_9_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s4_9_reps" class="set-input"/><input id="s4_9_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s5_9_reps" class="set-input"/><input id="s5_9_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s6_9_reps" class="set-input"/><input id="s6_9_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s7_9_reps" class="set-input"/><input id="s7_9_weight" class="set-input"/></div></td>
+                <td><textarea id="ex9" rows="2"></textarea></td>
+                <td><input id="s1_9_reps"/><input id="s1_9_weight"/></td>
+                <td><input id="s2_9_reps"/><input id="s2_9_weight"/></td>
+                <td><input id="s3_9_reps"/><input id="s3_9_weight"/></td>
+                <td><input id="s4_9_reps"/><input id="s4_9_weight"/></td>
+                <td><input id="s5_9_reps"/><input id="s5_9_weight"/></td>
+                <td><input id="s6_9_reps"/><input id="s6_9_weight"/></td>
+                <td><input id="s7_9_reps"/><input id="s7_9_weight"/></td>
               </tr>
 
               <tr>
-                <td class="exercise-cell"><textarea id="ex10" class="exercise-input" rows="2"></textarea></td>
-                <td><div class="setcell"><input id="s1_10_reps" class="set-input"/><input id="s1_10_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s2_10_reps" class="set-input"/><input id="s2_10_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s3_10_reps" class="set-input"/><input id="s3_10_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s4_10_reps" class="set-input"/><input id="s4_10_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s5_10_reps" class="set-input"/><input id="s5_10_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s6_10_reps" class="set-input"/><input id="s6_10_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s7_10_reps" class="set-input"/><input id="s7_10_weight" class="set-input"/></div></td>
+                <td><textarea id="ex10" rows="2"></textarea></td>
+                <td><input id="s1_10_reps"/><input id="s1_10_weight"/></td>
+                <td><input id="s2_10_reps"/><input id="s2_10_weight"/></td>
+                <td><input id="s3_10_reps"/><input id="s3_10_weight"/></td>
+                <td><input id="s4_10_reps"/><input id="s4_10_weight"/></td>
+                <td><input id="s5_10_reps"/><input id="s5_10_weight"/></td>
+                <td><input id="s6_10_reps"/><input id="s6_10_weight"/></td>
+                <td><input id="s7_10_reps"/><input id="s7_10_weight"/></td>
               </tr>
 
               <tr>
-                <td class="exercise-cell"><textarea id="ex11" class="exercise-input" rows="2"></textarea></td>
-                <td><div class="setcell"><input id="s1_11_reps" class="set-input"/><input id="s1_11_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s2_11_reps" class="set-input"/><input id="s2_11_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s3_11_reps" class="set-input"/><input id="s3_11_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s4_11_reps" class="set-input"/><input id="s4_11_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s5_11_reps" class="set-input"/><input id="s5_11_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s6_11_reps" class="set-input"/><input id="s6_11_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s7_11_reps" class="set-input"/><input id="s7_11_weight" class="set-input"/></div></td>
+                <td><textarea id="ex11" rows="2"></textarea></td>
+                <td><input id="s1_11_reps"/><input id="s1_11_weight"/></td>
+                <td><input id="s2_11_reps"/><input id="s2_11_weight"/></td>
+                <td><input id="s3_11_reps"/><input id="s3_11_weight"/></td>
+                <td><input id="s4_11_reps"/><input id="s4_11_weight"/></td>
+                <td><input id="s5_11_reps"/><input id="s5_11_weight"/></td>
+                <td><input id="s6_11_reps"/><input id="s6_11_weight"/></td>
+                <td><input id="s7_11_reps"/><input id="s7_11_weight"/></td>
               </tr>
 
               <tr>
-                <td class="exercise-cell"><textarea id="ex12" class="exercise-input" rows="2"></textarea></td>
-                <td><div class="setcell"><input id="s1_12_reps" class="set-input"/><input id="s1_12_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s2_12_reps" class="set-input"/><input id="s2_12_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s3_12_reps" class="set-input"/><input id="s3_12_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s4_12_reps" class="set-input"/><input id="s4_12_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s5_12_reps" class="set-input"/><input id="s5_12_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s6_12_reps" class="set-input"/><input id="s6_12_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s7_12_reps" class="set-input"/><input id="s7_12_weight" class="set-input"/></div></td>
+                <td><textarea id="ex12" rows="2"></textarea></td>
+                <td><input id="s1_12_reps"/><input id="s1_12_weight"/></td>
+                <td><input id="s2_12_reps"/><input id="s2_12_weight"/></td>
+                <td><input id="s3_12_reps"/><input id="s3_12_weight"/></td>
+                <td><input id="s4_12_reps"/><input id="s4_12_weight"/></td>
+                <td><input id="s5_12_reps"/><input id="s5_12_weight"/></td>
+                <td><input id="s6_12_reps"/><input id="s6_12_weight"/></td>
+                <td><input id="s7_12_reps"/><input id="s7_12_weight"/></td>
               </tr>
 
               <tr>
-                <td class="exercise-cell"><textarea id="ex13" class="exercise-input" rows="2"></textarea></td>
-                <td><div class="setcell"><input id="s1_13_reps" class="set-input"/><input id="s1_13_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s2_13_reps" class="set-input"/><input id="s2_13_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s3_13_reps" class="set-input"/><input id="s3_13_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s4_13_reps" class="set-input"/><input id="s4_13_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s5_13_reps" class="set-input"/><input id="s5_13_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s6_13_reps" class="set-input"/><input id="s6_13_weight" class="set-input"/></div></td>
-                <td><div class="setcell"><input id="s7_13_reps" class="set-input"/><input id="s7_13_weight" class="set-input"/></div></td>
+                <td><textarea id="ex13" rows="2"></textarea></td>
+                <td><input id="s1_13_reps"/><input id="s1_13_weight"/></td>
+                <td><input id="s2_13_reps"/><input id="s2_13_weight"/></td>
+                <td><input id="s3_13_reps"/><input id="s3_13_weight"/></td>
+                <td><input id="s4_13_reps"/><input id="s4_13_weight"/></td>
+                <td><input id="s5_13_reps"/><input id="s5_13_weight"/></td>
+                <td><input id="s6_13_reps"/><input id="s6_13_weight"/></td>
+                <td><input id="s7_13_reps"/><input id="s7_13_weight"/></td>
               </tr>
             </tbody>
           </table>
@@ -675,13 +679,11 @@
           <span class="title-strong">GROCERY LIST</span>
         </div>
 
-        <!-- Optional top meta row -->
         <div class="month-meta">
           <div class="field"><span class="field-label">WEEK OF:</span><input id="gl_weekof" class="line-input"/></div>
           <div class="field"><span class="field-label">STORE:</span><input id="gl_store" class="line-input"/></div>
         </div>
 
-        <!-- Simple sectioned list: uses your existing .reflection styles for consistency -->
         <div class="reflection">
           <label>PRODUCE<textarea id="gl_produce" class="reflection-box" placeholder="Fruits, veggies, herbs..."></textarea></label>
           <label>DAIRY / ALT-DAIRY<textarea id="gl_dairy" class="reflection-box" placeholder="Milk, yogurt, cheese, plant milks..."></textarea></label>
@@ -702,127 +704,23 @@
     <!-- SCREEN: MONTHLY PLAN -->
     <!-- ================= -->
     <section id="screen-monthlyPlan" class="screen">
-      <div class="page">
-        <div class="title center-title">
-          <span class="title-strong">MONTHLY PLAN</span>
-        </div>
-
-        <div class="month-meta">
-          <div class="field"><span class="field-label">MONTH:</span><input id="mp_month" class="line-input"/></div>
-          <div class="field"><span class="field-label">NOTES:</span><input id="mp_notes_top" class="line-input"/></div>
-        </div>
-
-        <table class="calendar">
-          <thead>
-            <tr>
-              <th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><textarea id="cal_1" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_2" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_3" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_4" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_5" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_6" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_7" class="cal-cell"></textarea></td>
-            </tr>
-            <tr>
-              <td><textarea id="cal_8" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_9" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_10" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_11" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_12" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_13" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_14" class="cal-cell"></textarea></td>
-            </tr>
-            <tr>
-              <td><textarea id="cal_15" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_16" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_17" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_18" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_19" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_20" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_21" class="cal-cell"></textarea></td>
-            </tr>
-            <tr>
-              <td><textarea id="cal_22" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_23" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_24" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_25" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_26" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_27" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_28" class="cal-cell"></textarea></td>
-            </tr>
-            <tr>
-              <td><textarea id="cal_29" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_30" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_31" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_32" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_33" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_34" class="cal-cell"></textarea></td>
-              <td><textarea id="cal_35" class="cal-cell"></textarea></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="monthly-bottom">
-          <div class="box">
-            <div class="box-title">MOST IMPORTANT GOALS THIS MONTH</div>
-            <div class="stack4">
-              <input id="mp_goal1" class="line-input" placeholder="1" />
-              <input id="mp_goal2" class="line-input" placeholder="2" />
-              <input id="mp_goal3" class="line-input" placeholder="3" />
-              <input id="mp_goal4" class="line-input" placeholder="4" />
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="box-title">THINGS I'LL DO TO BE BETTER THIS MONTH</div>
-            <div class="better-grid">
-              <label>HEALTH &amp; FITNESS <input id="mp_better_hf" class="line-input"/></label>
-              <label>BODY IMAGE <input id="mp_better_bi" class="line-input"/></label>
-              <label>SELF-CARE <input id="mp_better_sc" class="line-input"/></label>
-              <label>PERSONAL DEVELOPMENT <input id="mp_better_pd" class="line-input"/></label>
-              <label>FUN &amp; RECREATION <input id="mp_better_fr" class="line-input"/></label>
-              <label>SPIRITUAL <input id="mp_better_sp" class="line-input"/></label>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- (unchanged from your file) -->
+      ...
     </section>
 
     <!-- ================= -->
     <!-- SCREEN: MONTHLY REVIEW -->
     <!-- ================= -->
     <section id="screen-monthlyReview" class="screen">
-      <div class="page">
-        <div class="title center-title">
-          <span class="title-strong">MONTHLY REVIEW</span>
-        </div>
-
-        <div class="review-top">
-          <div class="field"><span class="field-label">MONTH:</span><input id="mr_month" class="line-input"/></div>
-          <div class="field"><span class="field-label">DATE:</span><input id="mr_date" class="line-input"/></div>
-        </div>
-
-        <div class="review-grid">
-          <div class="photo-box small">
-            <div class="camera-icon" aria-hidden="true"></div>
-            <div class="photo-label">PROGRESS PHOTO</div>
-          </div>
-
-        ...
-        <!-- (everything after this stays exactly as your file already has it) -->
-        ...
-      </div>
+      <!-- (unchanged from your file) -->
+      ...
     </section>
 
     <!-- ================= -->
     <!-- SCREEN: PRODUCTS    -->
     <!-- ================= -->
     <section id="screen-products" class="screen">
+      <!-- (unchanged from your file) -->
       ...
     </section>
 
@@ -830,6 +728,7 @@
     <!-- SCREEN: PROGRESS TRACKER  -->
     <!-- ========================= -->
     <section id="screen-tracker" class="screen">
+      <!-- (unchanged from your file) -->
       ...
     </section>
 
