@@ -496,4 +496,3 @@ textarea{ font-family:inherit; }
   .goal-grid{grid-template-columns:1fr; grid-template-rows:auto}
   .goal-side{grid-column:1; grid-row:auto; border-left:none; border-top:1px solid var(--grid)}
 }
-
