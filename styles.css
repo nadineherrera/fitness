@@ -10,12 +10,7 @@
 }
 
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  color:var(--ink);
-  background:#f2f2f2;
-}
+body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; color:var(--ink); background:#f2f2f2}
 
 /* App shell */
 .appbar{
@@ -74,7 +69,6 @@ body{
   .page{border:none; border-radius:0; width:var(--pageW); min-height:var(--pageH)}
 }
 
-/* Titles */
 .center-title{display:flex; justify-content:center; margin-bottom:12px}
 .title{font-size:20px; letter-spacing:.08em; text-transform:uppercase}
 .title-light{font-weight:500; color:var(--muted)}
@@ -92,14 +86,7 @@ body{
   font-size:12px;
 }
 .wide-line{min-width:240px}
-.mini-line{
-  border:none;
-  border-bottom:1px solid var(--grid);
-  padding:2px 2px 4px;
-  outline:none;
-  width:90px;
-  font-size:12px
-}
+.mini-line{border:none; border-bottom:1px solid var(--grid); padding:2px 2px 4px; outline:none; width:90px; font-size:12px}
 .mini-line.wide{width:360px}
 
 .cell-input{
@@ -137,26 +124,12 @@ textarea{ font-family:inherit; }
 /* Starting point layout */
 .top-grid{display:grid; grid-template-columns: 1fr 1.1fr; gap:12px; align-items:start}
 .field{display:flex; align-items:center; gap:10px; margin-bottom:10px}
-.field-label{
-  font-size:10px;
-  letter-spacing:.08em;
-  font-weight:900;
-  color:var(--muted);
-  white-space:nowrap
-}
+.field-label{font-size:10px; letter-spacing:.08em; font-weight:900; color:var(--muted); white-space:nowrap}
 .goal-area{margin-top:10px}
-.goal-heading{
-  font-size:11px;
-  letter-spacing:.14em;
-  color:var(--muted);
-  font-weight:900;
-  margin:10px 0 8px;
-  text-transform:uppercase;
-  text-align:center
-}
+.goal-heading{font-size:11px; letter-spacing:.14em; color:var(--muted); font-weight:900; margin:10px 0 8px; text-transform:uppercase; text-align:center}
 .goal-options{display:flex; gap:18px; flex-wrap:wrap}
 
-/* Diagram container to support an <img> */
+/* ✅ Diagram container to support an <img> */
 .body-diagram{
   height:170px;
   position:relative;
@@ -172,7 +145,7 @@ textarea{ font-family:inherit; }
   object-fit:contain;
   display:block;
 }
-/* Safety: hide any old diagram layers if they still exist in HTML */
+/* ✅ Safety: hide any old diagram layers if they still exist in HTML */
 .silhouettes,
 .measure-labels,
 .connector-lines{
@@ -181,11 +154,7 @@ textarea{ font-family:inherit; }
 
 .photo-row{display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin:10px 0 14px}
 .photo-box{
-  border:1px solid var(--grid);
-  height:250px;
-  border-radius:6px;
-  position:relative;
-  background:#fff;
+  border:1px solid var(--grid); height:250px; border-radius:6px; position:relative; background:#fff;
 }
 .photo-box.small{height:220px}
 .camera-icon{
@@ -207,21 +176,13 @@ textarea{ font-family:inherit; }
 }
 
 .section-heading{
-  text-align:center;
-  font-size:12px;
-  letter-spacing:.18em;
-  color:var(--muted);
-  font-weight:900;
-  margin:6px 0 10px;
-  text-transform:uppercase;
+  text-align:center; font-size:12px; letter-spacing:.18em; color:var(--muted);
+  font-weight:900; margin:6px 0 10px; text-transform:uppercase;
 }
 
 /* Tables */
 .measure-table, .workout-table, .mini, .meals-table, .calendar, .products, .tracker{
-  width:100%;
-  border-collapse:collapse;
-  table-layout:fixed;
-  border:1px solid var(--grid);
+  width:100%; border-collapse:collapse; table-layout:fixed; border:1px solid var(--grid);
 }
 .measure-table th, .measure-table td,
 .workout-table th, .workout-table td,
@@ -233,22 +194,10 @@ textarea{ font-family:inherit; }
   border:1px solid var(--grid);
 }
 
-.measure-table th{
-  background:var(--purple);
-  color:#fff;
-  font-size:11px;
-  letter-spacing:.06em;
-  font-weight:900;
-  text-align:center;
-  height:28px
-}
+.measure-table th{background:var(--purple); color:#fff; font-size:11px; letter-spacing:.06em; font-weight:900; text-align:center; height:28px}
 .measure-table td{height:26px}
 .measure-table tbody td:first-child{
-  background:var(--purpleSoft);
-  color:var(--muted);
-  font-weight:900;
-  letter-spacing:.06em;
-  font-size:10px;
+  background:var(--purpleSoft); color:var(--muted); font-weight:900; letter-spacing:.06em; font-size:10px;
 }
 .measure-table.small td{height:24px}
 .date-row{color:var(--muted); font-weight:900}
@@ -280,7 +229,7 @@ textarea{ font-family:inherit; }
   border-bottom:1px solid var(--grid);
 }
 
-/* Wider right column = more writing room */
+/* ✅ Wider right column = more writing room */
 .goal-grid{
   display:grid;
   grid-template-columns: 1fr 440px;
@@ -339,7 +288,7 @@ textarea{ font-family:inherit; }
 }
 .vlabel.small{font-size:9px}
 
-/* Remove any pattern backgrounds */
+/* ✅ Remove any pattern backgrounds */
 .goal-main,
 .bottom-text,
 .side-text{
@@ -367,10 +316,7 @@ textarea{ font-family:inherit; }
 .side-text.tint{ background:rgba(108,116,168,.10); }
 .bottom-text{ background:transparent !important; }
 
-/* =========================
-   WORKOUT SCREEN (FINAL)
-   ========================= */
-
+/* Workout screen */
 .label-row{display:flex; align-items:center; gap:8px; margin-bottom:10px}
 .icon{color:var(--muted)}
 .label{font-size:12px; letter-spacing:.08em; color:var(--muted); font-weight:700}
@@ -382,143 +328,20 @@ textarea{ font-family:inherit; }
 .circle-row{display:flex; gap:6px; padding-top:6px}
 .circle{width:10px; height:10px; border:1px solid var(--grid); border-radius:999px; background:#fff}
 
-/* Keeps the right edge aligned on smaller widths */
-.table-wrap{ overflow-x:auto; }
+.workout-table th{background:var(--purple); color:#fff; font-size:11px; letter-spacing:.06em; font-weight:900; text-align:center; height:28px}
+.workout-table td{height:26px}
+.workout-table .subhead th{background:var(--purpleSoft); color:var(--muted); font-size:9px; letter-spacing:.08em; font-weight:900}
+.workout-table tbody tr:nth-child(even) td{background:var(--purpleSoft)}
+.subcell{text-align:left; padding:4px 6px !important}
+.subtxt{line-height:1.2}
+.col-ex{width:42%}
+.col-set{width:8.285%}
 
-/* Column widths that add up cleanly */
-.col-ex{ width:40%; }
-.col-set{ width:8.5714%; } /* 60% / 7 */
-
-/* Table grid */
-.workout-table{
-  width:100%;
-  border-collapse:collapse;
-  table-layout:fixed;
-  border:1px solid var(--grid);
-}
-.workout-table th,
-.workout-table td{
-  border:1px solid var(--grid);
-  padding:0;
-  vertical-align:middle;
-}
-
-/* Header */
-.workout-table th{
-  background:var(--purple);
-  color:#fff;
-  font-size:11px;
-  letter-spacing:.06em;
-  font-weight:900;
-  text-align:center;
-  height:32px;
-}
-.workout-table .subhead th{
-  background:var(--purpleSoft);
-  color:var(--muted);
-  font-size:9px;
-  letter-spacing:.10em;
-  font-weight:900;
-  height:30px;
-}
-
-/* Taller rows for writing space */
-.workout-table tbody td{ height:52px; }
-
-/* -------------------------------------------------------
-   ✅ HARD OVERRIDES so striping ALWAYS behaves
-   (this fixes “the fill didn’t change” when older zebra
-   rules or caching are fighting you)
-   ------------------------------------------------------- */
-
-/* 1) Force ALL body cells white by default */
-.workout-table tbody td{
-  background:#fff !important;
-}
-
-/* 2) Keep EXERCISE column white always */
-.workout-table tbody td:first-child{
-  background:#fff !important;
-  padding:8px 10px;
-}
-
-/* 3) Stripe ONLY the reps/weight area (set columns) */
-.workout-table tbody tr:nth-child(even) td:not(:first-child){
-  background:var(--purpleSoft) !important;
-}
-
-/* Exercise input styling */
-.workout-table tbody td:first-child input,
-.workout-table tbody td:first-child textarea{
-  width:100%;
-  border:none !important;
-  background:transparent !important;
-  outline:none;
-  padding:0;
-  margin:0;
-  font-size:13px;
-  line-height:1.2;
-  border-radius:0 !important;
-  box-shadow:none !important;
-}
-
-/* SET inputs: 2-line layout (reps top, weight bottom) */
-.workout-table tbody td:not(:first-child) input,
-.workout-table tbody td:not(:first-child) textarea{
-  display:block;
-  width:100%;
-  height:26px;
-  border:none !important;
-  background:transparent !important;
-  outline:none;
-  padding:4px 6px;
-  margin:0;
-  font-size:12px;
-  border-radius:0 !important;
-  box-shadow:none !important;
-}
-
-/* Divider between reps/weight */
-.workout-table tbody td:not(:first-child) input:first-of-type,
-.workout-table tbody td:not(:first-child) textarea:first-of-type{
-  border-bottom:1px solid var(--grid) !important;
-}
-
-/* If there is only ONE input in a set cell */
-.workout-table tbody td:not(:first-child) input:only-of-type,
-.workout-table tbody td:not(:first-child) textarea:only-of-type{
-  height:52px;
-  border-bottom:none !important;
-}
-
-/* Subhead cell alignment */
-.subcell{
-  padding:0 !important;
-  text-align:center !important;
-}
-.subtxt{line-height:1.1}
-
-/* Layout below workout table */
 .split{display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:12px}
 .card{border:1px solid var(--grid); border-radius:6px; padding:10px}
-.card-title{
-  font-size:11px;
-  letter-spacing:.14em;
-  color:var(--muted);
-  font-weight:900;
-  margin-bottom:8px;
-  text-transform:uppercase
-}
+.card-title{font-size:11px; letter-spacing:.14em; color:var(--muted); font-weight:900; margin-bottom:8px; text-transform:uppercase}
 .center{text-align:center}
-.mini th{
-  background:var(--purple);
-  color:#fff;
-  font-size:10px;
-  letter-spacing:.06em;
-  font-weight:900;
-  text-align:center;
-  height:26px
-}
+.mini th{background:var(--purple); color:#fff; font-size:10px; letter-spacing:.06em; font-weight:900; text-align:center; height:26px}
 .mini td{height:24px}
 
 /* Notes (used across multiple screens) */
@@ -554,45 +377,18 @@ textarea{ font-family:inherit; }
 .wellness-box.wide{padding:10px 12px}
 .wellness-box.water{display:flex; flex-direction:column; justify-content:space-between}
 .w-row{display:flex; gap:8px; align-items:center; margin-bottom:8px}
-.w-label{
-  font-size:10px;
-  letter-spacing:.08em;
-  color:var(--muted);
-  font-weight:900;
-  white-space:nowrap;
-  text-transform:uppercase
-}
-.w-input{
-  flex:1;
-  border:none;
-  border-bottom:1px solid var(--grid);
-  outline:none;
-  padding:2px;
-  font-size:12px
-}
+.w-label{font-size:10px; letter-spacing:.08em; color:var(--muted); font-weight:900; white-space:nowrap; text-transform:uppercase}
+.w-input{flex:1; border:none; border-bottom:1px solid var(--grid); outline:none; padding:2px; font-size:12px}
 .mood-row{display:flex; align-items:center; gap:10px; justify-content:space-between; margin-bottom:10px}
 .mood{font-size:14px; opacity:.6}
 .meter-row{display:flex; align-items:center; gap:10px; margin-bottom:10px}
-.meter-input{
-  flex:1;
-  border:none;
-  border-bottom:1px solid var(--grid);
-  outline:none;
-  padding:2px;
-  font-size:12px
-}
+.meter-input{flex:1; border:none; border-bottom:1px solid var(--grid); outline:none; padding:2px; font-size:12px}
 .drops{display:flex; gap:6px; flex-wrap:wrap}
 .dropchk input{width:16px; height:16px; accent-color:var(--purple)}
 .diet-row{display:flex; gap:22px; align-items:center; margin:4px 0 10px; flex-wrap:wrap}
 
 .meals-table th{
-  background:var(--purple);
-  color:#fff;
-  font-size:10px;
-  letter-spacing:.06em;
-  font-weight:900;
-  text-align:center;
-  height:26px
+  background:var(--purple); color:#fff; font-size:10px; letter-spacing:.06em; font-weight:900; text-align:center; height:26px
 }
 .meals-table td{height:24px}
 .meals-table tbody tr:nth-child(even) td{background:var(--soft)}
@@ -614,15 +410,10 @@ textarea{ font-family:inherit; }
   font-weight:900;
 }
 .gap td{height:10px; background:#fff !important}
-.meals-table tfoot td{
-  background:var(--purpleSoft);
-  font-size:10px;
-  letter-spacing:.06em;
-  color:var(--muted);
-  font-weight:900
-}
+.meals-table tfoot td{background:var(--purpleSoft); font-size:10px; letter-spacing:.06em; color:var(--muted); font-weight:900}
 
-/* Grocery List */
+/* Grocery List (uses existing .reflection / .reflection-box)
+   Adding tiny QoL tweaks so it feels like its own page */
 #screen-grocery .reflection{
   grid-template-columns: 1fr 1fr;
 }
@@ -632,36 +423,12 @@ textarea{ font-family:inherit; }
 
 /* Monthly plan */
 .month-meta{display:flex; gap:12px; flex-wrap:wrap; margin:0 0 10px}
-.calendar th{
-  background:var(--purple);
-  color:#fff;
-  font-size:10px;
-  letter-spacing:.06em;
-  font-weight:900;
-  text-align:center;
-  height:26px
-}
+.calendar th{background:var(--purple); color:#fff; font-size:10px; letter-spacing:.06em; font-weight:900; text-align:center; height:26px}
 .calendar td{height:90px; vertical-align:top}
-.cal-cell{
-  width:100%;
-  height:88px;
-  border:none;
-  outline:none;
-  resize:none;
-  padding:6px;
-  font-size:12px;
-  background:transparent
-}
+.cal-cell{width:100%; height:88px; border:none; outline:none; resize:none; padding:6px; font-size:12px; background:transparent}
 .monthly-bottom{display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:12px}
 .box{border:1px solid var(--grid); border-radius:6px; padding:10px}
-.box-title{
-  font-size:11px;
-  letter-spacing:.14em;
-  color:var(--muted);
-  font-weight:900;
-  text-transform:uppercase;
-  margin-bottom:8px
-}
+.box-title{font-size:11px; letter-spacing:.14em; color:var(--muted); font-weight:900; text-transform:uppercase; margin-bottom:8px}
 .stack4{display:flex; flex-direction:column; gap:8px}
 .better-grid{display:grid; grid-template-columns: 1fr; gap:10px}
 .better-grid label{
@@ -682,32 +449,16 @@ textarea{ font-family:inherit; }
 .scales{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
 .scale{border:1px solid var(--grid); border-radius:6px; padding:10px}
 .scale-label{
-  font-size:10px;
-  letter-spacing:.08em;
-  color:var(--muted);
-  font-weight:900;
-  text-transform:uppercase;
-  margin-bottom:6px
+  font-size:10px; letter-spacing:.08em; color:var(--muted);
+  font-weight:900; text-transform:uppercase; margin-bottom:6px
 }
 .reflection{display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:12px}
 .reflection label{
-  font-size:10px;
-  letter-spacing:.08em;
-  color:var(--muted);
-  font-weight:900;
-  text-transform:uppercase;
-  display:flex;
-  flex-direction:column;
-  gap:6px
+  font-size:10px; letter-spacing:.08em; color:var(--muted);
+  font-weight:900; text-transform:uppercase;
+  display:flex; flex-direction:column; gap:6px
 }
-.reflection-box{
-  min-height:90px;
-  border:1px solid var(--grid);
-  border-radius:6px;
-  padding:10px;
-  outline:none;
-  resize:vertical
-}
+.reflection-box{min-height:90px; border:1px solid var(--grid); border-radius:6px; padding:10px; outline:none; resize:vertical}
 .life-wheel{margin-top:12px; border:1px solid var(--grid); border-radius:6px; padding:10px}
 .wheel-grid{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
 .wheel-grid label{
@@ -723,35 +474,12 @@ textarea{ font-family:inherit; }
 }
 
 /* Products */
-.products th{
-  background:var(--purple);
-  color:#fff;
-  font-size:10px;
-  letter-spacing:.06em;
-  font-weight:900;
-  text-align:center;
-  height:26px
-}
+.products th{background:var(--purple); color:#fff; font-size:10px; letter-spacing:.06em; font-weight:900; text-align:center; height:26px}
 .products td{height:26px}
 
 /* Tracker */
-.subcap{
-  text-align:center;
-  color:var(--muted);
-  font-weight:900;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  margin-bottom:10px
-}
-.tracker th{
-  background:var(--purple);
-  color:#fff;
-  font-size:10px;
-  letter-spacing:.06em;
-  font-weight:900;
-  text-align:center;
-  height:26px
-}
+.subcap{text-align:center; color:var(--muted); font-weight:900; letter-spacing:.08em; text-transform:uppercase; margin-bottom:10px}
+.tracker th{background:var(--purple); color:#fff; font-size:10px; letter-spacing:.06em; font-weight:900; text-align:center; height:26px}
 .tracker td{height:26px}
 
 /* Small screens */
@@ -768,3 +496,4 @@ textarea{ font-family:inherit; }
   .goal-grid{grid-template-columns:1fr; grid-template-rows:auto}
   .goal-side{grid-column:1; grid-row:auto; border-left:none; border-top:1px solid var(--grid)}
 }
+
