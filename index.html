@@ -25,6 +25,7 @@
       <button type="button" class="tab" data-screen="grocery" role="tab" aria-selected="false">Grocery List</button>
       <button type="button" class="tab" data-screen="monthlyPlan" role="tab" aria-selected="false">Monthly Plan</button>
       <button type="button" class="tab" data-screen="monthlyReview" role="tab" aria-selected="false">Monthly Review</button>
+      <button type="button" class="tab" data-screen="breathing" role="tab" aria-selected="false">Breathing</button>
       <button type="button" class="tab" data-screen="products" role="tab" aria-selected="false">Products</button>
       <button type="button" class="tab" data-screen="tracker" role="tab" aria-selected="false">Progress Tracker</button>
     </nav>
@@ -729,6 +730,91 @@
             <label>SELF-CARE <input id="lw_sc" class="line-input" type="text"/></label>
             <label>FUN &amp; RECREATION <input id="lw_fr" class="line-input" type="text"/></label>
             <label>SPIRITUAL <input id="lw_sp" class="line-input" type="text"/></label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= -->
+    <!-- SCREEN: BREATHING         -->
+    <!-- ========================= -->
+    <section id="screen-breathing" class="screen" role="tabpanel" aria-label="Breathing">
+      <div class="page">
+        <div class="title center-title">
+          <span class="title-strong">BREATHING EXERCISE</span>
+        </div>
+
+        <div class="breath-wrap" aria-label="Breathing exercise">
+          <p class="subcap" id="breathHelp">
+            A simple inhale/hold/exhale rhythm. Start when you’re ready.
+          </p>
+
+          <!-- Bubble / animation target (drive this in app.js) -->
+          <div class="breath-stage" aria-describedby="breathHelp">
+            <div
+              id="breathBubble"
+              class="breath-bubble"
+              role="img"
+              aria-label="Breathing bubble animation"
+            ></div>
+
+            <div class="breath-readout" aria-live="polite">
+              <div class="breath-phase">
+                <span class="label">PHASE:</span>
+                <span id="breathPhase" class="value">Idle</span>
+              </div>
+              <div class="breath-count">
+                <span class="label">COUNTDOWN:</span>
+                <span id="breathCountdown" class="value">—</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="breath-controls">
+            <div class="breath-row">
+              <label class="field">
+                <span class="field-label">PRESET:</span>
+                <select id="breathPreset" class="line-input" aria-label="Breathing preset">
+                  <option value="4-4-6">Calm (4–4–6)</option>
+                  <option value="4-7-8">Sleep (4–7–8)</option>
+                  <option value="3-3-3">Box-ish (3–3–3)</option>
+                  <option value="custom">Custom</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="breath-grid">
+              <label class="field">
+                <span class="field-label">INHALE (sec):</span>
+                <input id="breathIn" class="line-input" type="text" inputmode="numeric" value="4" />
+              </label>
+
+              <label class="field">
+                <span class="field-label">HOLD (sec):</span>
+                <input id="breathHold" class="line-input" type="text" inputmode="numeric" value="4" />
+              </label>
+
+              <label class="field">
+                <span class="field-label">EXHALE (sec):</span>
+                <input id="breathOut" class="line-input" type="text" inputmode="numeric" value="6" />
+              </label>
+
+              <label class="field">
+                <span class="field-label">ROUNDS:</span>
+                <input id="breathRounds" class="line-input" type="text" inputmode="numeric" value="6" />
+              </label>
+            </div>
+
+            <div class="breath-actions">
+              <button type="button" id="breathStartBtn" class="btn primary">Start</button>
+              <button type="button" id="breathPauseBtn" class="btn">Pause</button>
+              <button type="button" id="breathResetBtn" class="btn danger">Reset</button>
+            </div>
+
+            <div class="notes-block">
+              <div class="card-title center">NOTES</div>
+              <textarea id="breath_notes" class="notes-area" placeholder="How did you feel before/after?"></textarea>
+            </div>
           </div>
         </div>
       </div>
