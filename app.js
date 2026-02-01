@@ -8,58 +8,45 @@ const screens = {
   goals: document.getElementById("screen-goals"),
   workout: document.getElementById("screen-workout"),
   meals: document.getElementById("screen-meals"),
+  grocery: document.getElementById("screen-grocery"), // ✅ Grocery List
   monthlyPlan: document.getElementById("screen-monthlyPlan"),
   monthlyReview: document.getElementById("screen-monthlyReview"),
   products: document.getElementById("screen-products"),
   tracker: document.getElementById("screen-tracker"),
-
-  // ✅ Grocery List
-  grocery: document.getElementById("screen-grocery"),
 };
 
 function showScreen(key) {
   Object.values(screens).forEach((s) => s && s.classList.remove("visible"));
   if (screens[key]) screens[key].classList.add("visible");
 
-  tabs.forEach((t) =>
-    t.classList.toggle("active", t.dataset.screen === key)
-  );
-
+  tabs.forEach((t) => t.classList.toggle("active", t.dataset.screen === key));
   window.scrollTo({ top: 0, behavior: "instant" });
 }
 
-tabs.forEach((t) =>
-  t.addEventListener("click", () => showScreen(t.dataset.screen))
-);
+tabs.forEach((t) => t.addEventListener("click", () => showScreen(t.dataset.screen)));
 
 // ===========================
 // Local Save / Load
 // ===========================
 const KEY = "planner_app_state_v1";
 
+function getAllFields() {
+  return document.querySelectorAll("input, textarea, select");
+}
+
 function collectFormState() {
-  const fields = document.querySelectorAll("input, textarea, select");
   const data = {};
-
-  fields.forEach((el) => {
+  getAllFields().forEach((el) => {
     if (!el.id) return;
-
-    if (el.type === "checkbox") {
-      data[el.id] = el.checked;
-    } else {
-      data[el.id] = el.value;
-    }
+    data[el.id] = el.type === "checkbox" ? el.checked : el.value;
   });
-
   return data;
 }
 
 function applyFormState(data) {
   if (!data || typeof data !== "object") return;
 
-  const fields = document.querySelectorAll("input, textarea, select");
-
-  fields.forEach((el) => {
+  getAllFields().forEach((el) => {
     if (!el.id || !(el.id in data)) return;
 
     if (el.type === "checkbox") {
@@ -71,16 +58,10 @@ function applyFormState(data) {
 }
 
 function clearAllFields() {
-  const fields = document.querySelectorAll("input, textarea, select");
-
-  fields.forEach((el) => {
+  getAllFields().forEach((el) => {
     if (!el.id) return;
-
-    if (el.type === "checkbox") {
-      el.checked = false;
-    } else {
-      el.value = "";
-    }
+    if (el.type === "checkbox") el.checked = false;
+    else el.value = "";
   });
 }
 
@@ -88,8 +69,7 @@ function clearAllFields() {
 // Buttons
 // ===========================
 document.getElementById("saveBtn")?.addEventListener("click", () => {
-  const state = collectFormState();
-  localStorage.setItem(KEY, JSON.stringify(state));
+  localStorage.setItem(KEY, JSON.stringify(collectFormState()));
   alert("Saved locally ✔");
 });
 
@@ -119,8 +99,10 @@ document.getElementById("printBtn")?.addEventListener("click", () => {
 // Auto-load on refresh
 // ===========================
 (function boot() {
+  // Default screen
   showScreen("starting");
 
+  // Load saved state if present
   const raw = localStorage.getItem(KEY);
   if (!raw) return;
 
@@ -139,23 +121,21 @@ let autosaveTimer = null;
 function scheduleAutosave() {
   clearTimeout(autosaveTimer);
   autosaveTimer = setTimeout(() => {
-    const state = collectFormState();
-    localStorage.setItem(KEY, JSON.stringify(state));
+    localStorage.setItem(KEY, JSON.stringify(collectFormState()));
   }, 400);
 }
 
+// Save on typing / edits (text inputs, textareas, selects)
 document.addEventListener("input", (e) => {
   const el = e.target;
   if (!el || !el.id) return;
-  if (
-    el.tagName === "INPUT" ||
-    el.tagName === "TEXTAREA" ||
-    el.tagName === "SELECT"
-  ) {
+
+  if (el.tagName === "INPUT" || el.tagName === "TEXTAREA" || el.tagName === "SELECT") {
     scheduleAutosave();
   }
 });
 
+// Save on checkbox toggles + select changes
 document.addEventListener("change", (e) => {
   const el = e.target;
   if (!el || !el.id) return;
