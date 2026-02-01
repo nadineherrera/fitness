@@ -368,7 +368,7 @@ textarea{ font-family:inherit; }
 .bottom-text{ background:transparent !important; }
 
 /* =========================
-   WORKOUT SCREEN (FIXED)
+   WORKOUT SCREEN (FINAL)
    ========================= */
 
 .label-row{display:flex; align-items:center; gap:8px; margin-bottom:10px}
@@ -399,7 +399,7 @@ textarea{ font-family:inherit; }
 .workout-table th,
 .workout-table td{
   border:1px solid var(--grid);
-  padding:0;              /* critical: prevents drift + jumbled borders */
+  padding:0;
   vertical-align:middle;
 }
 
@@ -425,11 +425,29 @@ textarea{ font-family:inherit; }
 /* Taller rows for writing space */
 .workout-table tbody td{ height:52px; }
 
-/* EXERCISE column: blank white writing space */
+/* -------------------------------------------------------
+   ✅ HARD OVERRIDES so striping ALWAYS behaves
+   (this fixes “the fill didn’t change” when older zebra
+   rules or caching are fighting you)
+   ------------------------------------------------------- */
+
+/* 1) Force ALL body cells white by default */
+.workout-table tbody td{
+  background:#fff !important;
+}
+
+/* 2) Keep EXERCISE column white always */
 .workout-table tbody td:first-child{
-  background:#fff;
+  background:#fff !important;
   padding:8px 10px;
 }
+
+/* 3) Stripe ONLY the reps/weight area (set columns) */
+.workout-table tbody tr:nth-child(even) td:not(:first-child){
+  background:var(--purpleSoft) !important;
+}
+
+/* Exercise input styling */
 .workout-table tbody td:first-child input,
 .workout-table tbody td:first-child textarea{
   width:100%;
@@ -444,22 +462,12 @@ textarea{ font-family:inherit; }
   box-shadow:none !important;
 }
 
-/* SET cells base */
-.workout-table tbody td:not(:first-child){
-  background:#fff;
-}
-
-/* ✅ NEW: zebra striping ONLY for reps/weight area (not exercise column) */
-.workout-table tbody tr:nth-child(even) td:not(:first-child){
-  background:var(--purpleSoft);
-}
-
-/* SET inputs: clean 2-line layout (reps top, weight bottom) */
+/* SET inputs: 2-line layout (reps top, weight bottom) */
 .workout-table tbody td:not(:first-child) input,
 .workout-table tbody td:not(:first-child) textarea{
   display:block;
   width:100%;
-  height:26px;            /* half of 52px cell */
+  height:26px;
   border:none !important;
   background:transparent !important;
   outline:none;
@@ -476,7 +484,7 @@ textarea{ font-family:inherit; }
   border-bottom:1px solid var(--grid) !important;
 }
 
-/* If there is only ONE input in the set cell */
+/* If there is only ONE input in a set cell */
 .workout-table tbody td:not(:first-child) input:only-of-type,
 .workout-table tbody td:not(:first-child) textarea:only-of-type{
   height:52px;
@@ -614,8 +622,7 @@ textarea{ font-family:inherit; }
   font-weight:900
 }
 
-/* Grocery List (uses existing .reflection / .reflection-box)
-   Adding tiny QoL tweaks so it feels like its own page */
+/* Grocery List */
 #screen-grocery .reflection{
   grid-template-columns: 1fr 1fr;
 }
