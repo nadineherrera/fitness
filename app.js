@@ -1,18 +1,16 @@
-// ===========================
-// Tabs & Screens
-// ===========================
 const tabs = document.querySelectorAll(".tab");
-
 const screens = {
   starting: document.getElementById("screen-starting"),
   goals: document.getElementById("screen-goals"),
   workout: document.getElementById("screen-workout"),
   meals: document.getElementById("screen-meals"),
-  grocery: document.getElementById("screen-grocery"), // ✅ Grocery List
   monthlyPlan: document.getElementById("screen-monthlyPlan"),
   monthlyReview: document.getElementById("screen-monthlyReview"),
   products: document.getElementById("screen-products"),
   tracker: document.getElementById("screen-tracker"),
+
+  // ✅ NEW: Grocery List screen
+  grocery: document.getElementById("screen-grocery"),
 };
 
 function showScreen(key) {
@@ -23,71 +21,50 @@ function showScreen(key) {
   window.scrollTo({ top: 0, behavior: "instant" });
 }
 
-tabs.forEach((t) => t.addEventListener("click", () => showScreen(t.dataset.screen)));
+tabs.forEach((t) =>
+  t.addEventListener("click", () => showScreen(t.dataset.screen))
+);
 
-// ===========================
-// Local Save / Load
-// ===========================
-const KEY = "planner_app_state_v1";
-
-function getAllFields() {
-  return document.querySelectorAll("input, textarea, select");
-}
-
+// ---------- Local Save / Load ----------
 function collectFormState() {
+  const fields = document.querySelectorAll("input, textarea, select");
   const data = {};
-  getAllFields().forEach((el) => {
-    if (!el.id) return;
-    data[el.id] = el.type === "checkbox" ? el.checked : el.value;
+  fields.forEach((el) => {
+    const id = el.id;
+    if (!id) return;
+    if (el.type === "checkbox") data[id] = el.checked;
+    else data[id] = el.value;
   });
   return data;
 }
 
 function applyFormState(data) {
-  if (!data || typeof data !== "object") return;
-
-  getAllFields().forEach((el) => {
-    if (!el.id || !(el.id in data)) return;
-
-    if (el.type === "checkbox") {
-      el.checked = !!data[el.id];
-    } else {
-      el.value = data[el.id] ?? "";
-    }
+  const fields = document.querySelectorAll("input, textarea, select");
+  fields.forEach((el) => {
+    const id = el.id;
+    if (!id || !(id in data)) return;
+    if (el.type === "checkbox") el.checked = !!data[id];
+    else el.value = data[id];
   });
 }
 
-function clearAllFields() {
-  getAllFields().forEach((el) => {
-    if (!el.id) return;
-    if (el.type === "checkbox") el.checked = false;
-    else el.value = "";
-  });
-}
+const KEY = "planner_app_state_v1";
 
-// ===========================
-// Buttons
-// ===========================
 document.getElementById("saveBtn")?.addEventListener("click", () => {
-  localStorage.setItem(KEY, JSON.stringify(collectFormState()));
+  const state = collectFormState();
+  localStorage.setItem(KEY, JSON.stringify(state));
   alert("Saved locally ✔");
 });
 
 document.getElementById("loadBtn")?.addEventListener("click", () => {
   const raw = localStorage.getItem(KEY);
   if (!raw) return alert("No saved data found.");
-
-  try {
-    applyFormState(JSON.parse(raw));
-    alert("Loaded ✔");
-  } catch {
-    alert("Saved data is corrupted.");
-  }
+  applyFormState(JSON.parse(raw));
+  alert("Loaded ✔");
 });
 
 document.getElementById("clearBtn")?.addEventListener("click", () => {
   localStorage.removeItem(KEY);
-  clearAllFields();
   alert("Cleared ✔");
 });
 
@@ -95,49 +72,6 @@ document.getElementById("printBtn")?.addEventListener("click", () => {
   window.print();
 });
 
-// ===========================
-// Auto-load on refresh
-// ===========================
-(function boot() {
-  // Default screen
-  showScreen("starting");
+// ✅ Optional: keep default screen consistent on refresh
+showScreen("starting");
 
-  // Load saved state if present
-  const raw = localStorage.getItem(KEY);
-  if (!raw) return;
-
-  try {
-    applyFormState(JSON.parse(raw));
-  } catch {
-    // fail silently
-  }
-})();
-
-// ===========================
-// Optional: Auto-save (debounced)
-// ===========================
-let autosaveTimer = null;
-
-function scheduleAutosave() {
-  clearTimeout(autosaveTimer);
-  autosaveTimer = setTimeout(() => {
-    localStorage.setItem(KEY, JSON.stringify(collectFormState()));
-  }, 400);
-}
-
-// Save on typing / edits (text inputs, textareas, selects)
-document.addEventListener("input", (e) => {
-  const el = e.target;
-  if (!el || !el.id) return;
-
-  if (el.tagName === "INPUT" || el.tagName === "TEXTAREA" || el.tagName === "SELECT") {
-    scheduleAutosave();
-  }
-});
-
-// Save on checkbox toggles + select changes
-document.addEventListener("change", (e) => {
-  const el = e.target;
-  if (!el || !el.id) return;
-  scheduleAutosave();
-});
