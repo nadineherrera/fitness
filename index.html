@@ -3,40 +3,45 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Planner App (Local) — goals, workouts, meals, grocery lists, and monthly planning." />
+  <meta name="theme-color" content="#111111" />
+
   <title>Planner App (Local)</title>
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <header class="appbar">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="appbar" role="banner">
     <div class="brand">Planner App</div>
 
-    <nav class="tabs" aria-label="Planner navigation">
-      <button class="tab active" data-screen="starting">Starting Point</button>
-      <button class="tab" data-screen="goals">Goals</button>
-      <button class="tab" data-screen="workout">Workout</button>
-      <button class="tab" data-screen="meals">Meals</button>
-      <button class="tab" data-screen="grocery">Grocery List</button>
-      <button class="tab" data-screen="monthlyPlan">Monthly Plan</button>
-      <button class="tab" data-screen="monthlyReview">Monthly Review</button>
-      <button class="tab" data-screen="products">Products</button>
-      <button class="tab" data-screen="tracker">Progress Tracker</button>
+    <nav class="tabs" aria-label="Planner navigation" role="tablist">
+      <button type="button" class="tab active" data-screen="starting" role="tab" aria-selected="true">Starting Point</button>
+      <button type="button" class="tab" data-screen="goals" role="tab" aria-selected="false">Goals</button>
+      <button type="button" class="tab" data-screen="workout" role="tab" aria-selected="false">Workout</button>
+      <button type="button" class="tab" data-screen="meals" role="tab" aria-selected="false">Meals</button>
+      <button type="button" class="tab" data-screen="grocery" role="tab" aria-selected="false">Grocery List</button>
+      <button type="button" class="tab" data-screen="monthlyPlan" role="tab" aria-selected="false">Monthly Plan</button>
+      <button type="button" class="tab" data-screen="monthlyReview" role="tab" aria-selected="false">Monthly Review</button>
+      <button type="button" class="tab" data-screen="products" role="tab" aria-selected="false">Products</button>
+      <button type="button" class="tab" data-screen="tracker" role="tab" aria-selected="false">Progress Tracker</button>
     </nav>
 
-    <div class="app-actions">
-      <button id="printBtn" class="btn">Print</button>
-      <button id="saveBtn" class="btn primary">Save</button>
-      <button id="loadBtn" class="btn">Load</button>
-      <button id="clearBtn" class="btn danger">Clear</button>
+    <div class="app-actions" aria-label="App actions">
+      <button type="button" id="printBtn" class="btn">Print</button>
+      <button type="button" id="saveBtn" class="btn primary">Save</button>
+      <button type="button" id="loadBtn" class="btn">Load</button>
+      <button type="button" id="clearBtn" class="btn danger">Clear</button>
     </div>
   </header>
 
-  <main class="app">
-
+  <main id="main" class="app" role="main">
     <!-- ================================ -->
     <!-- SCREEN: STARTING POINT & RESULTS -->
     <!-- ================================ -->
-    <section id="screen-starting" class="screen visible">
+    <section id="screen-starting" class="screen visible" role="tabpanel" aria-label="Starting Point">
       <div class="page">
         <header class="page-title-row">
           <div class="title">
@@ -51,11 +56,11 @@
           <div class="id-block">
             <div class="field">
               <span class="field-label">NAME:</span>
-              <input id="sp_name" class="line-input" />
+              <input id="sp_name" class="line-input" type="text" autocomplete="name" />
             </div>
             <div class="field">
               <span class="field-label">HEIGHT:</span>
-              <input id="sp_height" class="line-input" />
+              <input id="sp_height" class="line-input" type="text" inputmode="text" />
             </div>
 
             <div class="goal-area">
@@ -80,7 +85,7 @@
           </div>
         </div>
 
-        <div class="photo-row">
+        <div class="photo-row" aria-label="Progress photos">
           <div class="photo-box">
             <div class="camera-icon" aria-hidden="true"></div>
             <div class="photo-label">BEFORE</div>
@@ -102,17 +107,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>NECK</td><td><input id="m_neck_cur" class="cell-input"/></td><td><input id="m_neck_res" class="cell-input"/></td></tr>
-            <tr><td>SHOULDERS</td><td><input id="m_shoulders_cur" class="cell-input"/></td><td><input id="m_shoulders_res" class="cell-input"/></td></tr>
-            <tr><td>CHEST</td><td><input id="m_chest_cur" class="cell-input"/></td><td><input id="m_chest_res" class="cell-input"/></td></tr>
-            <tr><td>BICEP</td><td><input id="m_bicep_cur" class="cell-input"/></td><td><input id="m_bicep_res" class="cell-input"/></td></tr>
-            <tr><td>WAIST</td><td><input id="m_waist_cur" class="cell-input"/></td><td><input id="m_waist_res" class="cell-input"/></td></tr>
-            <tr><td>HIPS</td><td><input id="m_hips_cur" class="cell-input"/></td><td><input id="m_hips_res" class="cell-input"/></td></tr>
-            <tr><td>THIGH</td><td><input id="m_thigh_cur" class="cell-input"/></td><td><input id="m_thigh_res" class="cell-input"/></td></tr>
-            <tr><td>CALF</td><td><input id="m_calf_cur" class="cell-input"/></td><td><input id="m_calf_res" class="cell-input"/></td></tr>
-            <tr><td>WEIGHT</td><td><input id="m_weight_cur" class="cell-input"/></td><td><input id="m_weight_res" class="cell-input"/></td></tr>
-            <tr><td>BODY FAT %</td><td><input id="m_bfat_cur" class="cell-input"/></td><td><input id="m_bfat_res" class="cell-input"/></td></tr>
-            <tr><td class="date-row">DATE</td><td><input id="m_date_cur" class="cell-input"/></td><td><input id="m_date_res" class="cell-input"/></td></tr>
+            <tr><td>NECK</td><td><input id="m_neck_cur" class="cell-input" type="text"/></td><td><input id="m_neck_res" class="cell-input" type="text"/></td></tr>
+            <tr><td>SHOULDERS</td><td><input id="m_shoulders_cur" class="cell-input" type="text"/></td><td><input id="m_shoulders_res" class="cell-input" type="text"/></td></tr>
+            <tr><td>CHEST</td><td><input id="m_chest_cur" class="cell-input" type="text"/></td><td><input id="m_chest_res" class="cell-input" type="text"/></td></tr>
+            <tr><td>BICEP</td><td><input id="m_bicep_cur" class="cell-input" type="text"/></td><td><input id="m_bicep_res" class="cell-input" type="text"/></td></tr>
+            <tr><td>WAIST</td><td><input id="m_waist_cur" class="cell-input" type="text"/></td><td><input id="m_waist_res" class="cell-input" type="text"/></td></tr>
+            <tr><td>HIPS</td><td><input id="m_hips_cur" class="cell-input" type="text"/></td><td><input id="m_hips_res" class="cell-input" type="text"/></td></tr>
+            <tr><td>THIGH</td><td><input id="m_thigh_cur" class="cell-input" type="text"/></td><td><input id="m_thigh_res" class="cell-input" type="text"/></td></tr>
+            <tr><td>CALF</td><td><input id="m_calf_cur" class="cell-input" type="text"/></td><td><input id="m_calf_res" class="cell-input" type="text"/></td></tr>
+            <tr><td>WEIGHT</td><td><input id="m_weight_cur" class="cell-input" type="text"/></td><td><input id="m_weight_res" class="cell-input" type="text"/></td></tr>
+            <tr><td>BODY FAT %</td><td><input id="m_bfat_cur" class="cell-input" type="text"/></td><td><input id="m_bfat_res" class="cell-input" type="text"/></td></tr>
+            <tr><td class="date-row">DATE</td><td><input id="m_date_cur" class="cell-input" type="text"/></td><td><input id="m_date_res" class="cell-input" type="text"/></td></tr>
           </tbody>
         </table>
       </div>
@@ -121,7 +126,7 @@
     <!-- ================= -->
     <!-- SCREEN: GOALS      -->
     <!-- ================= -->
-    <section id="screen-goals" class="screen">
+    <section id="screen-goals" class="screen" role="tabpanel" aria-label="Goals">
       <div class="page">
         <header class="page-title-row right">
           <div class="title">
@@ -131,8 +136,6 @@
         </header>
 
         <div class="goals-stack">
-
-          <!-- Goal template x5 -->
           <article class="goal-card">
             <div class="goal-header">GOAL #1</div>
             <div class="goal-grid">
@@ -297,7 +300,6 @@
               </div>
             </div>
           </article>
-
         </div>
       </div>
     </section>
@@ -305,27 +307,27 @@
     <!-- ================= -->
     <!-- SCREEN: WORKOUT    -->
     <!-- ================= -->
-    <section id="screen-workout" class="screen">
+    <section id="screen-workout" class="screen" role="tabpanel" aria-label="Workout">
       <div class="page">
         <header class="topline">
           <div class="left">
             <div class="label-row">
-              <span class="icon">◀</span>
+              <span class="icon" aria-hidden="true">◀</span>
               <span class="label">DAY &amp; DATE</span>
-              <input id="w_date" class="line-input wide-line" />
+              <input id="w_date" class="line-input wide-line" type="text" />
             </div>
 
             <div class="meta-row">
-              <div class="meta"><span class="meta-label">START:</span><input id="w_start" class="mini-line" /></div>
-              <div class="meta"><span class="meta-label">FINISH:</span><input id="w_finish" class="mini-line" /></div>
-              <div class="meta"><span class="meta-label">TOTAL TIME:</span><input id="w_total" class="mini-line" /></div>
+              <div class="meta"><span class="meta-label">START:</span><input id="w_start" class="mini-line" type="text" /></div>
+              <div class="meta"><span class="meta-label">FINISH:</span><input id="w_finish" class="mini-line" type="text" /></div>
+              <div class="meta"><span class="meta-label">TOTAL TIME:</span><input id="w_total" class="mini-line" type="text" /></div>
             </div>
             <div class="meta-row">
-              <div class="meta wide"><span class="meta-label">MUSCLE GROUP:</span><input id="w_muscle" class="mini-line wide" /></div>
+              <div class="meta wide"><span class="meta-label">MUSCLE GROUP:</span><input id="w_muscle" class="mini-line wide" type="text" /></div>
             </div>
           </div>
 
-          <div class="right">
+          <div class="right" aria-hidden="true">
             <div class="circle-row">
               <span class="circle"></span><span class="circle"></span><span class="circle"></span>
               <span class="circle"></span><span class="circle"></span><span class="circle"></span>
@@ -358,20 +360,19 @@
               </tr>
             </thead>
             <tbody>
-              <!-- 13 rows -->
-              <tr><td><input id="ex1" class="cell-input"/></td><td><input id="s1_1" class="cell-input"/></td><td><input id="s2_1" class="cell-input"/></td><td><input id="s3_1" class="cell-input"/></td><td><input id="s4_1" class="cell-input"/></td><td><input id="s5_1" class="cell-input"/></td><td><input id="s6_1" class="cell-input"/></td><td><input id="s7_1" class="cell-input"/></td></tr>
-              <tr><td><input id="ex2" class="cell-input"/></td><td><input id="s1_2" class="cell-input"/></td><td><input id="s2_2" class="cell-input"/></td><td><input id="s3_2" class="cell-input"/></td><td><input id="s4_2" class="cell-input"/></td><td><input id="s5_2" class="cell-input"/></td><td><input id="s6_2" class="cell-input"/></td><td><input id="s7_2" class="cell-input"/></td></tr>
-              <tr><td><input id="ex3" class="cell-input"/></td><td><input id="s1_3" class="cell-input"/></td><td><input id="s2_3" class="cell-input"/></td><td><input id="s3_3" class="cell-input"/></td><td><input id="s4_3" class="cell-input"/></td><td><input id="s5_3" class="cell-input"/></td><td><input id="s6_3" class="cell-input"/></td><td><input id="s7_3" class="cell-input"/></td></tr>
-              <tr><td><input id="ex4" class="cell-input"/></td><td><input id="s1_4" class="cell-input"/></td><td><input id="s2_4" class="cell-input"/></td><td><input id="s3_4" class="cell-input"/></td><td><input id="s4_4" class="cell-input"/></td><td><input id="s5_4" class="cell-input"/></td><td><input id="s6_4" class="cell-input"/></td><td><input id="s7_4" class="cell-input"/></td></tr>
-              <tr><td><input id="ex5" class="cell-input"/></td><td><input id="s1_5" class="cell-input"/></td><td><input id="s2_5" class="cell-input"/></td><td><input id="s3_5" class="cell-input"/></td><td><input id="s4_5" class="cell-input"/></td><td><input id="s5_5" class="cell-input"/></td><td><input id="s6_5" class="cell-input"/></td><td><input id="s7_5" class="cell-input"/></td></tr>
-              <tr><td><input id="ex6" class="cell-input"/></td><td><input id="s1_6" class="cell-input"/></td><td><input id="s2_6" class="cell-input"/></td><td><input id="s3_6" class="cell-input"/></td><td><input id="s4_6" class="cell-input"/></td><td><input id="s5_6" class="cell-input"/></td><td><input id="s6_6" class="cell-input"/></td><td><input id="s7_6" class="cell-input"/></td></tr>
-              <tr><td><input id="ex7" class="cell-input"/></td><td><input id="s1_7" class="cell-input"/></td><td><input id="s2_7" class="cell-input"/></td><td><input id="s3_7" class="cell-input"/></td><td><input id="s4_7" class="cell-input"/></td><td><input id="s5_7" class="cell-input"/></td><td><input id="s6_7" class="cell-input"/></td><td><input id="s7_7" class="cell-input"/></td></tr>
-              <tr><td><input id="ex8" class="cell-input"/></td><td><input id="s1_8" class="cell-input"/></td><td><input id="s2_8" class="cell-input"/></td><td><input id="s3_8" class="cell-input"/></td><td><input id="s4_8" class="cell-input"/></td><td><input id="s5_8" class="cell-input"/></td><td><input id="s6_8" class="cell-input"/></td><td><input id="s7_8" class="cell-input"/></td></tr>
-              <tr><td><input id="ex9" class="cell-input"/></td><td><input id="s1_9" class="cell-input"/></td><td><input id="s2_9" class="cell-input"/></td><td><input id="s3_9" class="cell-input"/></td><td><input id="s4_9" class="cell-input"/></td><td><input id="s5_9" class="cell-input"/></td><td><input id="s6_9" class="cell-input"/></td><td><input id="s7_9" class="cell-input"/></td></tr>
-              <tr><td><input id="ex10" class="cell-input"/></td><td><input id="s1_10" class="cell-input"/></td><td><input id="s2_10" class="cell-input"/></td><td><input id="s3_10" class="cell-input"/></td><td><input id="s4_10" class="cell-input"/></td><td><input id="s5_10" class="cell-input"/></td><td><input id="s6_10" class="cell-input"/></td><td><input id="s7_10" class="cell-input"/></td></tr>
-              <tr><td><input id="ex11" class="cell-input"/></td><td><input id="s1_11" class="cell-input"/></td><td><input id="s2_11" class="cell-input"/></td><td><input id="s3_11" class="cell-input"/></td><td><input id="s4_11" class="cell-input"/></td><td><input id="s5_11" class="cell-input"/></td><td><input id="s6_11" class="cell-input"/></td><td><input id="s7_11" class="cell-input"/></td></tr>
-              <tr><td><input id="ex12" class="cell-input"/></td><td><input id="s1_12" class="cell-input"/></td><td><input id="s2_12" class="cell-input"/></td><td><input id="s3_12" class="cell-input"/></td><td><input id="s4_12" class="cell-input"/></td><td><input id="s5_12" class="cell-input"/></td><td><input id="s6_12" class="cell-input"/></td><td><input id="s7_12" class="cell-input"/></td></tr>
-              <tr><td><input id="ex13" class="cell-input"/></td><td><input id="s1_13" class="cell-input"/></td><td><input id="s2_13" class="cell-input"/></td><td><input id="s3_13" class="cell-input"/></td><td><input id="s4_13" class="cell-input"/></td><td><input id="s5_13" class="cell-input"/></td><td><input id="s6_13" class="cell-input"/></td><td><input id="s7_13" class="cell-input"/></td></tr>
+              <tr><td><input id="ex1" class="cell-input" type="text"/></td><td><input id="s1_1" class="cell-input" type="text"/></td><td><input id="s2_1" class="cell-input" type="text"/></td><td><input id="s3_1" class="cell-input" type="text"/></td><td><input id="s4_1" class="cell-input" type="text"/></td><td><input id="s5_1" class="cell-input" type="text"/></td><td><input id="s6_1" class="cell-input" type="text"/></td><td><input id="s7_1" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="ex2" class="cell-input" type="text"/></td><td><input id="s1_2" class="cell-input" type="text"/></td><td><input id="s2_2" class="cell-input" type="text"/></td><td><input id="s3_2" class="cell-input" type="text"/></td><td><input id="s4_2" class="cell-input" type="text"/></td><td><input id="s5_2" class="cell-input" type="text"/></td><td><input id="s6_2" class="cell-input" type="text"/></td><td><input id="s7_2" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="ex3" class="cell-input" type="text"/></td><td><input id="s1_3" class="cell-input" type="text"/></td><td><input id="s2_3" class="cell-input" type="text"/></td><td><input id="s3_3" class="cell-input" type="text"/></td><td><input id="s4_3" class="cell-input" type="text"/></td><td><input id="s5_3" class="cell-input" type="text"/></td><td><input id="s6_3" class="cell-input" type="text"/></td><td><input id="s7_3" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="ex4" class="cell-input" type="text"/></td><td><input id="s1_4" class="cell-input" type="text"/></td><td><input id="s2_4" class="cell-input" type="text"/></td><td><input id="s3_4" class="cell-input" type="text"/></td><td><input id="s4_4" class="cell-input" type="text"/></td><td><input id="s5_4" class="cell-input" type="text"/></td><td><input id="s6_4" class="cell-input" type="text"/></td><td><input id="s7_4" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="ex5" class="cell-input" type="text"/></td><td><input id="s1_5" class="cell-input" type="text"/></td><td><input id="s2_5" class="cell-input" type="text"/></td><td><input id="s3_5" class="cell-input" type="text"/></td><td><input id="s4_5" class="cell-input" type="text"/></td><td><input id="s5_5" class="cell-input" type="text"/></td><td><input id="s6_5" class="cell-input" type="text"/></td><td><input id="s7_5" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="ex6" class="cell-input" type="text"/></td><td><input id="s1_6" class="cell-input" type="text"/></td><td><input id="s2_6" class="cell-input" type="text"/></td><td><input id="s3_6" class="cell-input" type="text"/></td><td><input id="s4_6" class="cell-input" type="text"/></td><td><input id="s5_6" class="cell-input" type="text"/></td><td><input id="s6_6" class="cell-input" type="text"/></td><td><input id="s7_6" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="ex7" class="cell-input" type="text"/></td><td><input id="s1_7" class="cell-input" type="text"/></td><td><input id="s2_7" class="cell-input" type="text"/></td><td><input id="s3_7" class="cell-input" type="text"/></td><td><input id="s4_7" class="cell-input" type="text"/></td><td><input id="s5_7" class="cell-input" type="text"/></td><td><input id="s6_7" class="cell-input" type="text"/></td><td><input id="s7_7" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="ex8" class="cell-input" type="text"/></td><td><input id="s1_8" class="cell-input" type="text"/></td><td><input id="s2_8" class="cell-input" type="text"/></td><td><input id="s3_8" class="cell-input" type="text"/></td><td><input id="s4_8" class="cell-input" type="text"/></td><td><input id="s5_8" class="cell-input" type="text"/></td><td><input id="s6_8" class="cell-input" type="text"/></td><td><input id="s7_8" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="ex9" class="cell-input" type="text"/></td><td><input id="s1_9" class="cell-input" type="text"/></td><td><input id="s2_9" class="cell-input" type="text"/></td><td><input id="s3_9" class="cell-input" type="text"/></td><td><input id="s4_9" class="cell-input" type="text"/></td><td><input id="s5_9" class="cell-input" type="text"/></td><td><input id="s6_9" class="cell-input" type="text"/></td><td><input id="s7_9" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="ex10" class="cell-input" type="text"/></td><td><input id="s1_10" class="cell-input" type="text"/></td><td><input id="s2_10" class="cell-input" type="text"/></td><td><input id="s3_10" class="cell-input" type="text"/></td><td><input id="s4_10" class="cell-input" type="text"/></td><td><input id="s5_10" class="cell-input" type="text"/></td><td><input id="s6_10" class="cell-input" type="text"/></td><td><input id="s7_10" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="ex11" class="cell-input" type="text"/></td><td><input id="s1_11" class="cell-input" type="text"/></td><td><input id="s2_11" class="cell-input" type="text"/></td><td><input id="s3_11" class="cell-input" type="text"/></td><td><input id="s4_11" class="cell-input" type="text"/></td><td><input id="s5_11" class="cell-input" type="text"/></td><td><input id="s6_11" class="cell-input" type="text"/></td><td><input id="s7_11" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="ex12" class="cell-input" type="text"/></td><td><input id="s1_12" class="cell-input" type="text"/></td><td><input id="s2_12" class="cell-input" type="text"/></td><td><input id="s3_12" class="cell-input" type="text"/></td><td><input id="s4_12" class="cell-input" type="text"/></td><td><input id="s5_12" class="cell-input" type="text"/></td><td><input id="s6_12" class="cell-input" type="text"/></td><td><input id="s7_12" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="ex13" class="cell-input" type="text"/></td><td><input id="s1_13" class="cell-input" type="text"/></td><td><input id="s2_13" class="cell-input" type="text"/></td><td><input id="s3_13" class="cell-input" type="text"/></td><td><input id="s4_13" class="cell-input" type="text"/></td><td><input id="s5_13" class="cell-input" type="text"/></td><td><input id="s6_13" class="cell-input" type="text"/></td><td><input id="s7_13" class="cell-input" type="text"/></td></tr>
             </tbody>
           </table>
         </div>
@@ -384,10 +385,10 @@
                 <tr><th>TYPE</th><th>TIME</th><th>DISTANCE</th><th>CALORIES BURNED</th></tr>
               </thead>
               <tbody>
-                <tr><td><input id="c1_type" class="cell-input"/></td><td><input id="c1_time" class="cell-input"/></td><td><input id="c1_dist" class="cell-input"/></td><td><input id="c1_cal" class="cell-input"/></td></tr>
-                <tr><td><input id="c2_type" class="cell-input"/></td><td><input id="c2_time" class="cell-input"/></td><td><input id="c2_dist" class="cell-input"/></td><td><input id="c2_cal" class="cell-input"/></td></tr>
-                <tr><td><input id="c3_type" class="cell-input"/></td><td><input id="c3_time" class="cell-input"/></td><td><input id="c3_dist" class="cell-input"/></td><td><input id="c3_cal" class="cell-input"/></td></tr>
-                <tr><td><input id="c4_type" class="cell-input"/></td><td><input id="c4_time" class="cell-input"/></td><td><input id="c4_dist" class="cell-input"/></td><td><input id="c4_cal" class="cell-input"/></td></tr>
+                <tr><td><input id="c1_type" class="cell-input" type="text"/></td><td><input id="c1_time" class="cell-input" type="text"/></td><td><input id="c1_dist" class="cell-input" type="text"/></td><td><input id="c1_cal" class="cell-input" type="text"/></td></tr>
+                <tr><td><input id="c2_type" class="cell-input" type="text"/></td><td><input id="c2_time" class="cell-input" type="text"/></td><td><input id="c2_dist" class="cell-input" type="text"/></td><td><input id="c2_cal" class="cell-input" type="text"/></td></tr>
+                <tr><td><input id="c3_type" class="cell-input" type="text"/></td><td><input id="c3_time" class="cell-input" type="text"/></td><td><input id="c3_dist" class="cell-input" type="text"/></td><td><input id="c3_cal" class="cell-input" type="text"/></td></tr>
+                <tr><td><input id="c4_type" class="cell-input" type="text"/></td><td><input id="c4_time" class="cell-input" type="text"/></td><td><input id="c4_dist" class="cell-input" type="text"/></td><td><input id="c4_cal" class="cell-input" type="text"/></td></tr>
               </tbody>
             </table>
           </div>
@@ -400,7 +401,7 @@
 
         <div class="satisfaction">
           <div class="sat-title">WORKOUT SATISFACTION RATE</div>
-          <div class="sat-scale">
+          <div class="sat-scale" aria-hidden="true">
             <span>0%</span>
             <div class="ticks">
               <span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span>
@@ -408,7 +409,7 @@
             </div>
             <span>100%</span>
           </div>
-          <input id="w_satisfaction" type="range" min="0" max="100" value="50" class="range" />
+          <input id="w_satisfaction" type="range" min="0" max="100" value="50" class="range" aria-label="Workout satisfaction percentage" />
         </div>
       </div>
     </section>
@@ -416,30 +417,30 @@
     <!-- ================= -->
     <!-- SCREEN: MEALS      -->
     <!-- ================= -->
-    <section id="screen-meals" class="screen">
+    <section id="screen-meals" class="screen" role="tabpanel" aria-label="Meals">
       <div class="page">
         <div class="wellness-grid">
           <div class="wellness-box">
-            <div class="w-row"><span class="w-label">WEIGHT:</span><input id="ml_weight" class="w-input" /></div>
-            <div class="w-row"><span class="w-label">SLEEP:</span><input id="ml_sleep" class="w-input" /></div>
-            <div class="w-row"><span class="w-label">FRUIT:</span><input id="ml_fruit" class="w-input" /></div>
+            <div class="w-row"><span class="w-label">WEIGHT:</span><input id="ml_weight" class="w-input" type="text" /></div>
+            <div class="w-row"><span class="w-label">SLEEP:</span><input id="ml_sleep" class="w-input" type="text" /></div>
+            <div class="w-row"><span class="w-label">FRUIT:</span><input id="ml_fruit" class="w-input" type="text" /></div>
           </div>
           <div class="wellness-box">
-            <div class="w-row"><span class="w-label">BODY FAT %:</span><input id="ml_bfat" class="w-input" /></div>
-            <div class="w-row"><span class="w-label">CAFFEIN. DRINKS:</span><input id="ml_caff" class="w-input" /></div>
-            <div class="w-row"><span class="w-label">VEGGIES:</span><input id="ml_veg" class="w-input" /></div>
+            <div class="w-row"><span class="w-label">BODY FAT %:</span><input id="ml_bfat" class="w-input" type="text" /></div>
+            <div class="w-row"><span class="w-label">CAFFEIN. DRINKS:</span><input id="ml_caff" class="w-input" type="text" /></div>
+            <div class="w-row"><span class="w-label">VEGGIES:</span><input id="ml_veg" class="w-input" type="text" /></div>
           </div>
           <div class="wellness-box wide">
             <div class="mood-row">
               <span class="w-label">MOOD FOR TODAY</span>
-              <span class="mood">☺</span><span class="mood">🙂</span><span class="mood">😐</span><span class="mood">🙁</span><span class="mood">☹</span>
+              <span class="mood" aria-hidden="true">☺</span><span class="mood" aria-hidden="true">🙂</span><span class="mood" aria-hidden="true">😐</span><span class="mood" aria-hidden="true">🙁</span><span class="mood" aria-hidden="true">☹</span>
             </div>
-            <div class="meter-row"><span class="w-label">ENERGY</span><input id="ml_energy" class="meter-input" placeholder="1–5" /></div>
-            <div class="meter-row"><span class="w-label">ACTIVITY</span><input id="ml_activity" class="meter-input" placeholder="1–10" /></div>
+            <div class="meter-row"><span class="w-label">ENERGY</span><input id="ml_energy" class="meter-input" placeholder="1–5" type="text" inputmode="numeric" /></div>
+            <div class="meter-row"><span class="w-label">ACTIVITY</span><input id="ml_activity" class="meter-input" placeholder="1–10" type="text" inputmode="numeric" /></div>
           </div>
           <div class="wellness-box water">
             <div class="w-label">WATER</div>
-            <div class="drops">
+            <div class="drops" aria-label="Water tracker">
               <label class="dropchk"><input id="water1" type="checkbox" /></label>
               <label class="dropchk"><input id="water2" type="checkbox" /></label>
               <label class="dropchk"><input id="water3" type="checkbox" /></label>
@@ -472,47 +473,43 @@
               </tr>
             </thead>
             <tbody>
-              <!-- Breakfast block -->
               <tr class="meal-label">
                 <td rowspan="6"><span class="vertical">BREAKFAST</span></td>
-                <td><input id="b_p1" class="cell-input"/></td><td><input id="b_s1" class="cell-input"/></td><td><input id="b_c1" class="cell-input"/></td><td><input id="b_pr1" class="cell-input"/></td><td><input id="b_f1" class="cell-input"/></td><td><input id="b_cb1" class="cell-input"/></td>
+                <td><input id="b_p1" class="cell-input" type="text"/></td><td><input id="b_s1" class="cell-input" type="text"/></td><td><input id="b_c1" class="cell-input" type="text"/></td><td><input id="b_pr1" class="cell-input" type="text"/></td><td><input id="b_f1" class="cell-input" type="text"/></td><td><input id="b_cb1" class="cell-input" type="text"/></td>
               </tr>
-              <tr><td><input id="b_p2" class="cell-input"/></td><td><input id="b_s2" class="cell-input"/></td><td><input id="b_c2" class="cell-input"/></td><td><input id="b_pr2" class="cell-input"/></td><td><input id="b_f2" class="cell-input"/></td><td><input id="b_cb2" class="cell-input"/></td></tr>
-              <tr><td><input id="b_p3" class="cell-input"/></td><td><input id="b_s3" class="cell-input"/></td><td><input id="b_c3" class="cell-input"/></td><td><input id="b_pr3" class="cell-input"/></td><td><input id="b_f3" class="cell-input"/></td><td><input id="b_cb3" class="cell-input"/></td></tr>
-              <tr><td><input id="b_p4" class="cell-input"/></td><td><input id="b_s4" class="cell-input"/></td><td><input id="b_c4" class="cell-input"/></td><td><input id="b_pr4" class="cell-input"/></td><td><input id="b_f4" class="cell-input"/></td><td><input id="b_cb4" class="cell-input"/></td></tr>
+              <tr><td><input id="b_p2" class="cell-input" type="text"/></td><td><input id="b_s2" class="cell-input" type="text"/></td><td><input id="b_c2" class="cell-input" type="text"/></td><td><input id="b_pr2" class="cell-input" type="text"/></td><td><input id="b_f2" class="cell-input" type="text"/></td><td><input id="b_cb2" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="b_p3" class="cell-input" type="text"/></td><td><input id="b_s3" class="cell-input" type="text"/></td><td><input id="b_c3" class="cell-input" type="text"/></td><td><input id="b_pr3" class="cell-input" type="text"/></td><td><input id="b_f3" class="cell-input" type="text"/></td><td><input id="b_cb3" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="b_p4" class="cell-input" type="text"/></td><td><input id="b_s4" class="cell-input" type="text"/></td><td><input id="b_c4" class="cell-input" type="text"/></td><td><input id="b_pr4" class="cell-input" type="text"/></td><td><input id="b_f4" class="cell-input" type="text"/></td><td><input id="b_cb4" class="cell-input" type="text"/></td></tr>
               <tr class="subtotal"><td>SUBTOTAL:</td><td></td><td></td><td></td><td></td><td></td></tr>
               <tr class="gap"><td colspan="6"></td></tr>
 
-              <!-- Lunch block -->
               <tr class="meal-label">
                 <td rowspan="6"><span class="vertical">LUNCH</span></td>
-                <td><input id="l_p1" class="cell-input"/></td><td><input id="l_s1" class="cell-input"/></td><td><input id="l_c1" class="cell-input"/></td><td><input id="l_pr1" class="cell-input"/></td><td><input id="l_f1" class="cell-input"/></td><td><input id="l_cb1" class="cell-input"/></td>
+                <td><input id="l_p1" class="cell-input" type="text"/></td><td><input id="l_s1" class="cell-input" type="text"/></td><td><input id="l_c1" class="cell-input" type="text"/></td><td><input id="l_pr1" class="cell-input" type="text"/></td><td><input id="l_f1" class="cell-input" type="text"/></td><td><input id="l_cb1" class="cell-input" type="text"/></td>
               </tr>
-              <tr><td><input id="l_p2" class="cell-input"/></td><td><input id="l_s2" class="cell-input"/></td><td><input id="l_c2" class="cell-input"/></td><td><input id="l_pr2" class="cell-input"/></td><td><input id="l_f2" class="cell-input"/></td><td><input id="l_cb2" class="cell-input"/></td></tr>
-              <tr><td><input id="l_p3" class="cell-input"/></td><td><input id="l_s3" class="cell-input"/></td><td><input id="l_c3" class="cell-input"/></td><td><input id="l_pr3" class="cell-input"/></td><td><input id="l_f3" class="cell-input"/></td><td><input id="l_cb3" class="cell-input"/></td></tr>
-              <tr><td><input id="l_p4" class="cell-input"/></td><td><input id="l_s4" class="cell-input"/></td><td><input id="l_c4" class="cell-input"/></td><td><input id="l_pr4" class="cell-input"/></td><td><input id="l_f4" class="cell-input"/></td><td><input id="l_cb4" class="cell-input"/></td></tr>
+              <tr><td><input id="l_p2" class="cell-input" type="text"/></td><td><input id="l_s2" class="cell-input" type="text"/></td><td><input id="l_c2" class="cell-input" type="text"/></td><td><input id="l_pr2" class="cell-input" type="text"/></td><td><input id="l_f2" class="cell-input" type="text"/></td><td><input id="l_cb2" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="l_p3" class="cell-input" type="text"/></td><td><input id="l_s3" class="cell-input" type="text"/></td><td><input id="l_c3" class="cell-input" type="text"/></td><td><input id="l_pr3" class="cell-input" type="text"/></td><td><input id="l_f3" class="cell-input" type="text"/></td><td><input id="l_cb3" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="l_p4" class="cell-input" type="text"/></td><td><input id="l_s4" class="cell-input" type="text"/></td><td><input id="l_c4" class="cell-input" type="text"/></td><td><input id="l_pr4" class="cell-input" type="text"/></td><td><input id="l_f4" class="cell-input" type="text"/></td><td><input id="l_cb4" class="cell-input" type="text"/></td></tr>
               <tr class="subtotal"><td>SUBTOTAL:</td><td></td><td></td><td></td><td></td><td></td></tr>
               <tr class="gap"><td colspan="6"></td></tr>
 
-              <!-- Dinner block -->
               <tr class="meal-label">
                 <td rowspan="6"><span class="vertical">DINNER</span></td>
-                <td><input id="d_p1" class="cell-input"/></td><td><input id="d_s1" class="cell-input"/></td><td><input id="d_c1" class="cell-input"/></td><td><input id="d_pr1" class="cell-input"/></td><td><input id="d_f1" class="cell-input"/></td><td><input id="d_cb1" class="cell-input"/></td>
+                <td><input id="d_p1" class="cell-input" type="text"/></td><td><input id="d_s1" class="cell-input" type="text"/></td><td><input id="d_c1" class="cell-input" type="text"/></td><td><input id="d_pr1" class="cell-input" type="text"/></td><td><input id="d_f1" class="cell-input" type="text"/></td><td><input id="d_cb1" class="cell-input" type="text"/></td>
               </tr>
-              <tr><td><input id="d_p2" class="cell-input"/></td><td><input id="d_s2" class="cell-input"/></td><td><input id="d_c2" class="cell-input"/></td><td><input id="d_pr2" class="cell-input"/></td><td><input id="d_f2" class="cell-input"/></td><td><input id="d_cb2" class="cell-input"/></td></tr>
-              <tr><td><input id="d_p3" class="cell-input"/></td><td><input id="d_s3" class="cell-input"/></td><td><input id="d_c3" class="cell-input"/></td><td><input id="d_pr3" class="cell-input"/></td><td><input id="d_f3" class="cell-input"/></td><td><input id="d_cb3" class="cell-input"/></td></tr>
-              <tr><td><input id="d_p4" class="cell-input"/></td><td><input id="d_s4" class="cell-input"/></td><td><input id="d_c4" class="cell-input"/></td><td><input id="d_pr4" class="cell-input"/></td><td><input id="d_f4" class="cell-input"/></td><td><input id="d_cb4" class="cell-input"/></td></tr>
+              <tr><td><input id="d_p2" class="cell-input" type="text"/></td><td><input id="d_s2" class="cell-input" type="text"/></td><td><input id="d_c2" class="cell-input" type="text"/></td><td><input id="d_pr2" class="cell-input" type="text"/></td><td><input id="d_f2" class="cell-input" type="text"/></td><td><input id="d_cb2" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="d_p3" class="cell-input" type="text"/></td><td><input id="d_s3" class="cell-input" type="text"/></td><td><input id="d_c3" class="cell-input" type="text"/></td><td><input id="d_pr3" class="cell-input" type="text"/></td><td><input id="d_f3" class="cell-input" type="text"/></td><td><input id="d_cb3" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="d_p4" class="cell-input" type="text"/></td><td><input id="d_s4" class="cell-input" type="text"/></td><td><input id="d_c4" class="cell-input" type="text"/></td><td><input id="d_pr4" class="cell-input" type="text"/></td><td><input id="d_f4" class="cell-input" type="text"/></td><td><input id="d_cb4" class="cell-input" type="text"/></td></tr>
               <tr class="subtotal"><td>SUBTOTAL:</td><td></td><td></td><td></td><td></td><td></td></tr>
               <tr class="gap"><td colspan="6"></td></tr>
 
-              <!-- Snacks block -->
               <tr class="meal-label">
                 <td rowspan="5"><span class="vertical">SNACKS</span></td>
-                <td><input id="s_p1" class="cell-input"/></td><td><input id="s_s1" class="cell-input"/></td><td><input id="s_c1" class="cell-input"/></td><td><input id="s_pr1" class="cell-input"/></td><td><input id="s_f1" class="cell-input"/></td><td><input id="s_cb1" class="cell-input"/></td>
+                <td><input id="s_p1" class="cell-input" type="text"/></td><td><input id="s_s1" class="cell-input" type="text"/></td><td><input id="s_c1" class="cell-input" type="text"/></td><td><input id="s_pr1" class="cell-input" type="text"/></td><td><input id="s_f1" class="cell-input" type="text"/></td><td><input id="s_cb1" class="cell-input" type="text"/></td>
               </tr>
-              <tr><td><input id="s_p2" class="cell-input"/></td><td><input id="s_s2" class="cell-input"/></td><td><input id="s_c2" class="cell-input"/></td><td><input id="s_pr2" class="cell-input"/></td><td><input id="s_f2" class="cell-input"/></td><td><input id="s_cb2" class="cell-input"/></td></tr>
-              <tr><td><input id="s_p3" class="cell-input"/></td><td><input id="s_s3" class="cell-input"/></td><td><input id="s_c3" class="cell-input"/></td><td><input id="s_pr3" class="cell-input"/></td><td><input id="s_f3" class="cell-input"/></td><td><input id="s_cb3" class="cell-input"/></td></tr>
-              <tr><td><input id="s_p4" class="cell-input"/></td><td><input id="s_s4" class="cell-input"/></td><td><input id="s_c4" class="cell-input"/></td><td><input id="s_pr4" class="cell-input"/></td><td><input id="s_f4" class="cell-input"/></td><td><input id="s_cb4" class="cell-input"/></td></tr>
+              <tr><td><input id="s_p2" class="cell-input" type="text"/></td><td><input id="s_s2" class="cell-input" type="text"/></td><td><input id="s_c2" class="cell-input" type="text"/></td><td><input id="s_pr2" class="cell-input" type="text"/></td><td><input id="s_f2" class="cell-input" type="text"/></td><td><input id="s_cb2" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="s_p3" class="cell-input" type="text"/></td><td><input id="s_s3" class="cell-input" type="text"/></td><td><input id="s_c3" class="cell-input" type="text"/></td><td><input id="s_pr3" class="cell-input" type="text"/></td><td><input id="s_f3" class="cell-input" type="text"/></td><td><input id="s_cb3" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="s_p4" class="cell-input" type="text"/></td><td><input id="s_s4" class="cell-input" type="text"/></td><td><input id="s_c4" class="cell-input" type="text"/></td><td><input id="s_pr4" class="cell-input" type="text"/></td><td><input id="s_f4" class="cell-input" type="text"/></td><td><input id="s_cb4" class="cell-input" type="text"/></td></tr>
               <tr class="subtotal"><td>SUBTOTAL:</td><td></td><td></td><td></td><td></td><td></td></tr>
             </tbody>
             <tfoot>
@@ -532,19 +529,17 @@
     <!-- ========================= -->
     <!-- SCREEN: GROCERY LIST      -->
     <!-- ========================= -->
-    <section id="screen-grocery" class="screen">
+    <section id="screen-grocery" class="screen" role="tabpanel" aria-label="Grocery List">
       <div class="page">
         <div class="title center-title">
           <span class="title-strong">GROCERY LIST</span>
         </div>
 
-        <!-- Optional top meta row -->
         <div class="month-meta">
-          <div class="field"><span class="field-label">WEEK OF:</span><input id="gl_weekof" class="line-input"/></div>
-          <div class="field"><span class="field-label">STORE:</span><input id="gl_store" class="line-input"/></div>
+          <div class="field"><span class="field-label">WEEK OF:</span><input id="gl_weekof" class="line-input" type="text"/></div>
+          <div class="field"><span class="field-label">STORE:</span><input id="gl_store" class="line-input" type="text"/></div>
         </div>
 
-        <!-- Simple sectioned list: uses your existing .reflection styles for consistency -->
         <div class="reflection">
           <label>PRODUCE<textarea id="gl_produce" class="reflection-box" placeholder="Fruits, veggies, herbs..."></textarea></label>
           <label>DAIRY / ALT-DAIRY<textarea id="gl_dairy" class="reflection-box" placeholder="Milk, yogurt, cheese, plant milks..."></textarea></label>
@@ -564,15 +559,15 @@
     <!-- ================= -->
     <!-- SCREEN: MONTHLY PLAN -->
     <!-- ================= -->
-    <section id="screen-monthlyPlan" class="screen">
+    <section id="screen-monthlyPlan" class="screen" role="tabpanel" aria-label="Monthly Plan">
       <div class="page">
         <div class="title center-title">
           <span class="title-strong">MONTHLY PLAN</span>
         </div>
 
         <div class="month-meta">
-          <div class="field"><span class="field-label">MONTH:</span><input id="mp_month" class="line-input"/></div>
-          <div class="field"><span class="field-label">NOTES:</span><input id="mp_notes_top" class="line-input"/></div>
+          <div class="field"><span class="field-label">MONTH:</span><input id="mp_month" class="line-input" type="text"/></div>
+          <div class="field"><span class="field-label">NOTES:</span><input id="mp_notes_top" class="line-input" type="text"/></div>
         </div>
 
         <table class="calendar">
@@ -634,22 +629,22 @@
           <div class="box">
             <div class="box-title">MOST IMPORTANT GOALS THIS MONTH</div>
             <div class="stack4">
-              <input id="mp_goal1" class="line-input" placeholder="1" />
-              <input id="mp_goal2" class="line-input" placeholder="2" />
-              <input id="mp_goal3" class="line-input" placeholder="3" />
-              <input id="mp_goal4" class="line-input" placeholder="4" />
+              <input id="mp_goal1" class="line-input" placeholder="1" type="text" />
+              <input id="mp_goal2" class="line-input" placeholder="2" type="text" />
+              <input id="mp_goal3" class="line-input" placeholder="3" type="text" />
+              <input id="mp_goal4" class="line-input" placeholder="4" type="text" />
             </div>
           </div>
 
           <div class="box">
             <div class="box-title">THINGS I'LL DO TO BE BETTER THIS MONTH</div>
             <div class="better-grid">
-              <label>HEALTH &amp; FITNESS <input id="mp_better_hf" class="line-input"/></label>
-              <label>BODY IMAGE <input id="mp_better_bi" class="line-input"/></label>
-              <label>SELF-CARE <input id="mp_better_sc" class="line-input"/></label>
-              <label>PERSONAL DEVELOPMENT <input id="mp_better_pd" class="line-input"/></label>
-              <label>FUN &amp; RECREATION <input id="mp_better_fr" class="line-input"/></label>
-              <label>SPIRITUAL <input id="mp_better_sp" class="line-input"/></label>
+              <label>HEALTH &amp; FITNESS <input id="mp_better_hf" class="line-input" type="text"/></label>
+              <label>BODY IMAGE <input id="mp_better_bi" class="line-input" type="text"/></label>
+              <label>SELF-CARE <input id="mp_better_sc" class="line-input" type="text"/></label>
+              <label>PERSONAL DEVELOPMENT <input id="mp_better_pd" class="line-input" type="text"/></label>
+              <label>FUN &amp; RECREATION <input id="mp_better_fr" class="line-input" type="text"/></label>
+              <label>SPIRITUAL <input id="mp_better_sp" class="line-input" type="text"/></label>
             </div>
           </div>
         </div>
@@ -659,15 +654,15 @@
     <!-- ================= -->
     <!-- SCREEN: MONTHLY REVIEW -->
     <!-- ================= -->
-    <section id="screen-monthlyReview" class="screen">
+    <section id="screen-monthlyReview" class="screen" role="tabpanel" aria-label="Monthly Review">
       <div class="page">
         <div class="title center-title">
           <span class="title-strong">MONTHLY REVIEW</span>
         </div>
 
         <div class="review-top">
-          <div class="field"><span class="field-label">MONTH:</span><input id="mr_month" class="line-input"/></div>
-          <div class="field"><span class="field-label">DATE:</span><input id="mr_date" class="line-input"/></div>
+          <div class="field"><span class="field-label">MONTH:</span><input id="mr_month" class="line-input" type="text"/></div>
+          <div class="field"><span class="field-label">DATE:</span><input id="mr_date" class="line-input" type="text"/></div>
         </div>
 
         <div class="review-grid">
@@ -682,10 +677,10 @@
                 <tr><th></th><th>THIS MONTH</th><th>LAST MONTH</th></tr>
               </thead>
               <tbody>
-                <tr><td>WEIGHT</td><td><input id="mr_w_this" class="cell-input"/></td><td><input id="mr_w_last" class="cell-input"/></td></tr>
-                <tr><td>WAIST</td><td><input id="mr_waist_this" class="cell-input"/></td><td><input id="mr_waist_last" class="cell-input"/></td></tr>
-                <tr><td>HIPS</td><td><input id="mr_hips_this" class="cell-input"/></td><td><input id="mr_hips_last" class="cell-input"/></td></tr>
-                <tr><td>BODY FAT %</td><td><input id="mr_bfat_this" class="cell-input"/></td><td><input id="mr_bfat_last" class="cell-input"/></td></tr>
+                <tr><td>WEIGHT</td><td><input id="mr_w_this" class="cell-input" type="text"/></td><td><input id="mr_w_last" class="cell-input" type="text"/></td></tr>
+                <tr><td>WAIST</td><td><input id="mr_waist_this" class="cell-input" type="text"/></td><td><input id="mr_waist_last" class="cell-input" type="text"/></td></tr>
+                <tr><td>HIPS</td><td><input id="mr_hips_this" class="cell-input" type="text"/></td><td><input id="mr_hips_last" class="cell-input" type="text"/></td></tr>
+                <tr><td>BODY FAT %</td><td><input id="mr_bfat_this" class="cell-input" type="text"/></td><td><input id="mr_bfat_last" class="cell-input" type="text"/></td></tr>
               </tbody>
             </table>
 
@@ -728,12 +723,12 @@
         <div class="life-wheel">
           <div class="box-title center">LIFE WHEEL (1–10)</div>
           <div class="wheel-grid">
-            <label>HEALTH &amp; FITNESS <input id="lw_hf" class="line-input"/></label>
-            <label>BODY IMAGE <input id="lw_bi" class="line-input"/></label>
-            <label>PERSONAL DEVELOPMENT <input id="lw_pd" class="line-input"/></label>
-            <label>SELF-CARE <input id="lw_sc" class="line-input"/></label>
-            <label>FUN &amp; RECREATION <input id="lw_fr" class="line-input"/></label>
-            <label>SPIRITUAL <input id="lw_sp" class="line-input"/></label>
+            <label>HEALTH &amp; FITNESS <input id="lw_hf" class="line-input" type="text"/></label>
+            <label>BODY IMAGE <input id="lw_bi" class="line-input" type="text"/></label>
+            <label>PERSONAL DEVELOPMENT <input id="lw_pd" class="line-input" type="text"/></label>
+            <label>SELF-CARE <input id="lw_sc" class="line-input" type="text"/></label>
+            <label>FUN &amp; RECREATION <input id="lw_fr" class="line-input" type="text"/></label>
+            <label>SPIRITUAL <input id="lw_sp" class="line-input" type="text"/></label>
           </div>
         </div>
       </div>
@@ -742,7 +737,7 @@
     <!-- ================= -->
     <!-- SCREEN: PRODUCTS    -->
     <!-- ================= -->
-    <section id="screen-products" class="screen">
+    <section id="screen-products" class="screen" role="tabpanel" aria-label="Products">
       <div class="page">
         <div class="title center-title"><span class="title-strong">PRODUCTS</span></div>
 
@@ -761,14 +756,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td><input id="p1_name" class="cell-input"/></td><td><input id="p1_serv" class="cell-input"/></td><td><input id="p1_cal" class="cell-input"/></td><td><input id="p1_prot" class="cell-input"/></td><td><input id="p1_fat" class="cell-input"/></td><td><input id="p1_carbs" class="cell-input"/></td><td><input id="p1_notes" class="cell-input"/></td></tr>
-              <tr><td><input id="p2_name" class="cell-input"/></td><td><input id="p2_serv" class="cell-input"/></td><td><input id="p2_cal" class="cell-input"/></td><td><input id="p2_prot" class="cell-input"/></td><td><input id="p2_fat" class="cell-input"/></td><td><input id="p2_carbs" class="cell-input"/></td><td><input id="p2_notes" class="cell-input"/></td></tr>
-              <tr><td><input id="p3_name" class="cell-input"/></td><td><input id="p3_serv" class="cell-input"/></td><td><input id="p3_cal" class="cell-input"/></td><td><input id="p3_prot" class="cell-input"/></td><td><input id="p3_fat" class="cell-input"/></td><td><input id="p3_carbs" class="cell-input"/></td><td><input id="p3_notes" class="cell-input"/></td></tr>
-              <tr><td><input id="p4_name" class="cell-input"/></td><td><input id="p4_serv" class="cell-input"/></td><td><input id="p4_cal" class="cell-input"/></td><td><input id="p4_prot" class="cell-input"/></td><td><input id="p4_fat" class="cell-input"/></td><td><input id="p4_carbs" class="cell-input"/></td><td><input id="p4_notes" class="cell-input"/></td></tr>
-              <tr><td><input id="p5_name" class="cell-input"/></td><td><input id="p5_serv" class="cell-input"/></td><td><input id="p5_cal" class="cell-input"/></td><td><input id="p5_prot" class="cell-input"/></td><td><input id="p5_fat" class="cell-input"/></td><td><input id="p5_carbs" class="cell-input"/></td><td><input id="p5_notes" class="cell-input"/></td></tr>
-              <tr><td><input id="p6_name" class="cell-input"/></td><td><input id="p6_serv" class="cell-input"/></td><td><input id="p6_cal" class="cell-input"/></td><td><input id="p6_prot" class="cell-input"/></td><td><input id="p6_fat" class="cell-input"/></td><td><input id="p6_carbs" class="cell-input"/></td><td><input id="p6_notes" class="cell-input"/></td></tr>
-              <tr><td><input id="p7_name" class="cell-input"/></td><td><input id="p7_serv" class="cell-input"/></td><td><input id="p7_cal" class="cell-input"/></td><td><input id="p7_prot" class="cell-input"/></td><td><input id="p7_fat" class="cell-input"/></td><td><input id="p7_carbs" class="cell-input"/></td><td><input id="p7_notes" class="cell-input"/></td></tr>
-              <tr><td><input id="p8_name" class="cell-input"/></td><td><input id="p8_serv" class="cell-input"/></td><td><input id="p8_cal" class="cell-input"/></td><td><input id="p8_prot" class="cell-input"/></td><td><input id="p8_fat" class="cell-input"/></td><td><input id="p8_carbs" class="cell-input"/></td><td><input id="p8_notes" class="cell-input"/></td></tr>
+              <tr><td><input id="p1_name" class="cell-input" type="text"/></td><td><input id="p1_serv" class="cell-input" type="text"/></td><td><input id="p1_cal" class="cell-input" type="text"/></td><td><input id="p1_prot" class="cell-input" type="text"/></td><td><input id="p1_fat" class="cell-input" type="text"/></td><td><input id="p1_carbs" class="cell-input" type="text"/></td><td><input id="p1_notes" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="p2_name" class="cell-input" type="text"/></td><td><input id="p2_serv" class="cell-input" type="text"/></td><td><input id="p2_cal" class="cell-input" type="text"/></td><td><input id="p2_prot" class="cell-input" type="text"/></td><td><input id="p2_fat" class="cell-input" type="text"/></td><td><input id="p2_carbs" class="cell-input" type="text"/></td><td><input id="p2_notes" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="p3_name" class="cell-input" type="text"/></td><td><input id="p3_serv" class="cell-input" type="text"/></td><td><input id="p3_cal" class="cell-input" type="text"/></td><td><input id="p3_prot" class="cell-input" type="text"/></td><td><input id="p3_fat" class="cell-input" type="text"/></td><td><input id="p3_carbs" class="cell-input" type="text"/></td><td><input id="p3_notes" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="p4_name" class="cell-input" type="text"/></td><td><input id="p4_serv" class="cell-input" type="text"/></td><td><input id="p4_cal" class="cell-input" type="text"/></td><td><input id="p4_prot" class="cell-input" type="text"/></td><td><input id="p4_fat" class="cell-input" type="text"/></td><td><input id="p4_carbs" class="cell-input" type="text"/></td><td><input id="p4_notes" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="p5_name" class="cell-input" type="text"/></td><td><input id="p5_serv" class="cell-input" type="text"/></td><td><input id="p5_cal" class="cell-input" type="text"/></td><td><input id="p5_prot" class="cell-input" type="text"/></td><td><input id="p5_fat" class="cell-input" type="text"/></td><td><input id="p5_carbs" class="cell-input" type="text"/></td><td><input id="p5_notes" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="p6_name" class="cell-input" type="text"/></td><td><input id="p6_serv" class="cell-input" type="text"/></td><td><input id="p6_cal" class="cell-input" type="text"/></td><td><input id="p6_prot" class="cell-input" type="text"/></td><td><input id="p6_fat" class="cell-input" type="text"/></td><td><input id="p6_carbs" class="cell-input" type="text"/></td><td><input id="p6_notes" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="p7_name" class="cell-input" type="text"/></td><td><input id="p7_serv" class="cell-input" type="text"/></td><td><input id="p7_cal" class="cell-input" type="text"/></td><td><input id="p7_prot" class="cell-input" type="text"/></td><td><input id="p7_fat" class="cell-input" type="text"/></td><td><input id="p7_carbs" class="cell-input" type="text"/></td><td><input id="p7_notes" class="cell-input" type="text"/></td></tr>
+              <tr><td><input id="p8_name" class="cell-input" type="text"/></td><td><input id="p8_serv" class="cell-input" type="text"/></td><td><input id="p8_cal" class="cell-input" type="text"/></td><td><input id="p8_prot" class="cell-input" type="text"/></td><td><input id="p8_fat" class="cell-input" type="text"/></td><td><input id="p8_carbs" class="cell-input" type="text"/></td><td><input id="p8_notes" class="cell-input" type="text"/></td></tr>
             </tbody>
           </table>
         </div>
@@ -778,7 +773,7 @@
     <!-- ========================= -->
     <!-- SCREEN: PROGRESS TRACKER  -->
     <!-- ========================= -->
-    <section id="screen-tracker" class="screen">
+    <section id="screen-tracker" class="screen" role="tabpanel" aria-label="Progress Tracker">
       <div class="page">
         <div class="title center-title"><span class="title-strong">PROGRESS TRACKER</span></div>
         <div class="subcap">Weeks 1–14</div>
@@ -793,92 +788,96 @@
           </thead>
           <tbody>
             <tr>
-              <td><input id="t_item1" class="cell-input" placeholder="Item 1"/></td>
-              <td><input id="t1w1" class="tiny"/></td><td><input id="t1w2" class="tiny"/></td><td><input id="t1w3" class="tiny"/></td><td><input id="t1w4" class="tiny"/></td>
-              <td><input id="t1w5" class="tiny"/></td><td><input id="t1w6" class="tiny"/></td><td><input id="t1w7" class="tiny"/></td>
-              <td><input id="t1w8" class="tiny"/></td><td><input id="t1w9" class="tiny"/></td><td><input id="t1w10" class="tiny"/></td><td><input id="t1w11" class="tiny"/></td>
-              <td><input id="t1w12" class="tiny"/></td><td><input id="t1w13" class="tiny"/></td><td><input id="t1w14" class="tiny"/></td>
+              <td><input id="t_item1" class="cell-input" placeholder="Item 1" type="text"/></td>
+              <td><input id="t1w1" class="tiny" type="text"/></td><td><input id="t1w2" class="tiny" type="text"/></td><td><input id="t1w3" class="tiny" type="text"/></td><td><input id="t1w4" class="tiny" type="text"/></td>
+              <td><input id="t1w5" class="tiny" type="text"/></td><td><input id="t1w6" class="tiny" type="text"/></td><td><input id="t1w7" class="tiny" type="text"/></td>
+              <td><input id="t1w8" class="tiny" type="text"/></td><td><input id="t1w9" class="tiny" type="text"/></td><td><input id="t1w10" class="tiny" type="text"/></td><td><input id="t1w11" class="tiny" type="text"/></td>
+              <td><input id="t1w12" class="tiny" type="text"/></td><td><input id="t1w13" class="tiny" type="text"/></td><td><input id="t1w14" class="tiny" type="text"/></td>
             </tr>
 
             <tr>
-              <td><input id="t_item2" class="cell-input" placeholder="Item 2"/></td>
-              <td><input id="t2w1" class="tiny"/></td><td><input id="t2w2" class="tiny"/></td><td><input id="t2w3" class="tiny"/></td><td><input id="t2w4" class="tiny"/></td>
-              <td><input id="t2w5" class="tiny"/></td><td><input id="t2w6" class="tiny"/></td><td><input id="t2w7" class="tiny"/></td>
-              <td><input id="t2w8" class="tiny"/></td><td><input id="t2w9" class="tiny"/></td><td><input id="t2w10" class="tiny"/></td><td><input id="t2w11" class="tiny"/></td>
-              <td><input id="t2w12" class="tiny"/></td><td><input id="t2w13" class="tiny"/></td><td><input id="t2w14" class="tiny"/></td>
+              <td><input id="t_item2" class="cell-input" placeholder="Item 2" type="text"/></td>
+              <td><input id="t2w1" class="tiny" type="text"/></td><td><input id="t2w2" class="tiny" type="text"/></td><td><input id="t2w3" class="tiny" type="text"/></td><td><input id="t2w4" class="tiny" type="text"/></td>
+              <td><input id="t2w5" class="tiny" type="text"/></td><td><input id="t2w6" class="tiny" type="text"/></td><td><input id="t2w7" class="tiny" type="text"/></td>
+              <td><input id="t2w8" class="tiny" type="text"/></td><td><input id="t2w9" class="tiny" type="text"/></td><td><input id="t2w10" class="tiny" type="text"/></td><td><input id="t2w11" class="tiny" type="text"/></td>
+              <td><input id="t2w12" class="tiny" type="text"/></td><td><input id="t2w13" class="tiny" type="text"/></td><td><input id="t2w14" class="tiny" type="text"/></td>
             </tr>
 
             <tr>
-              <td><input id="t_item3" class="cell-input" placeholder="Item 3"/></td>
-              <td><input id="t3w1" class="tiny"/></td><td><input id="t3w2" class="tiny"/></td><td><input id="t3w3" class="tiny"/></td><td><input id="t3w4" class="tiny"/></td>
-              <td><input id="t3w5" class="tiny"/></td><td><input id="t3w6" class="tiny"/></td><td><input id="t3w7" class="tiny"/></td>
-              <td><input id="t3w8" class="tiny"/></td><td><input id="t3w9" class="tiny"/></td><td><input id="t3w10" class="tiny"/></td><td><input id="t3w11" class="tiny"/></td>
-              <td><input id="t3w12" class="tiny"/></td><td><input id="t3w13" class="tiny"/></td><td><input id="t3w14" class="tiny"/></td>
+              <td><input id="t_item3" class="cell-input" placeholder="Item 3" type="text"/></td>
+              <td><input id="t3w1" class="tiny" type="text"/></td><td><input id="t3w2" class="tiny" type="text"/></td><td><input id="t3w3" class="tiny" type="text"/></td><td><input id="t3w4" class="tiny" type="text"/></td>
+              <td><input id="t3w5" class="tiny" type="text"/></td><td><input id="t3w6" class="tiny" type="text"/></td><td><input id="t3w7" class="tiny" type="text"/></td>
+              <td><input id="t3w8" class="tiny" type="text"/></td><td><input id="t3w9" class="tiny" type="text"/></td><td><input id="t3w10" class="tiny" type="text"/></td><td><input id="t3w11" class="tiny" type="text"/></td>
+              <td><input id="t3w12" class="tiny" type="text"/></td><td><input id="t3w13" class="tiny" type="text"/></td><td><input id="t3w14" class="tiny" type="text"/></td>
             </tr>
 
             <tr>
-              <td><input id="t_item4" class="cell-input" placeholder="Item 4"/></td>
-              <td><input id="t4w1" class="tiny"/></td><td><input id="t4w2" class="tiny"/></td><td><input id="t4w3" class="tiny"/></td><td><input id="t4w4" class="tiny"/></td>
-              <td><input id="t4w5" class="tiny"/></td><td><input id="t4w6" class="tiny"/></td><td><input id="t4w7" class="tiny"/></td>
-              <td><input id="t4w8" class="tiny"/></td><td><input id="t4w9" class="tiny"/></td><td><input id="t4w10" class="tiny"/></td><td><input id="t4w11" class="tiny"/></td>
-              <td><input id="t4w12" class="tiny"/></td><td><input id="t4w13" class="tiny"/></td><td><input id="t4w14" class="tiny"/></td>
+              <td><input id="t_item4" class="cell-input" placeholder="Item 4" type="text"/></td>
+              <td><input id="t4w1" class="tiny" type="text"/></td><td><input id="t4w2" class="tiny" type="text"/></td><td><input id="t4w3" class="tiny" type="text"/></td><td><input id="t4w4" class="tiny" type="text"/></td>
+              <td><input id="t4w5" class="tiny" type="text"/></td><td><input id="t4w6" class="tiny" type="text"/></td><td><input id="t4w7" class="tiny" type="text"/></td>
+              <td><input id="t4w8" class="tiny" type="text"/></td><td><input id="t4w9" class="tiny" type="text"/></td><td><input id="t4w10" class="tiny" type="text"/></td><td><input id="t4w11" class="tiny" type="text"/></td>
+              <td><input id="t4w12" class="tiny" type="text"/></td><td><input id="t4w13" class="tiny" type="text"/></td><td><input id="t4w14" class="tiny" type="text"/></td>
             </tr>
 
             <tr>
-              <td><input id="t_item5" class="cell-input" placeholder="Item 5"/></td>
-              <td><input id="t5w1" class="tiny"/></td><td><input id="t5w2" class="tiny"/></td><td><input id="t5w3" class="tiny"/></td><td><input id="t5w4" class="tiny"/></td>
-              <td><input id="t5w5" class="tiny"/></td><td><input id="t5w6" class="tiny"/></td><td><input id="t5w7" class="tiny"/></td>
-              <td><input id="t5w8" class="tiny"/></td><td><input id="t5w9" class="tiny"/></td><td><input id="t5w10" class="tiny"/></td><td><input id="t5w11" class="tiny"/></td>
-              <td><input id="t5w12" class="tiny"/></td><td><input id="t5w13" class="tiny"/></td><td><input id="t5w14" class="tiny"/></td>
+              <td><input id="t_item5" class="cell-input" placeholder="Item 5" type="text"/></td>
+              <td><input id="t5w1" class="tiny" type="text"/></td><td><input id="t5w2" class="tiny" type="text"/></td><td><input id="t5w3" class="tiny" type="text"/></td><td><input id="t5w4" class="tiny" type="text"/></td>
+              <td><input id="t5w5" class="tiny" type="text"/></td><td><input id="t5w6" class="tiny" type="text"/></td><td><input id="t5w7" class="tiny" type="text"/></td>
+              <td><input id="t5w8" class="tiny" type="text"/></td><td><input id="t5w9" class="tiny" type="text"/></td><td><input id="t5w10" class="tiny" type="text"/></td><td><input id="t5w11" class="tiny" type="text"/></td>
+              <td><input id="t5w12" class="tiny" type="text"/></td><td><input id="t5w13" class="tiny" type="text"/></td><td><input id="t5w14" class="tiny" type="text"/></td>
             </tr>
 
             <tr>
-              <td><input id="t_item6" class="cell-input" placeholder="Item 6"/></td>
-              <td><input id="t6w1" class="tiny"/></td><td><input id="t6w2" class="tiny"/></td><td><input id="t6w3" class="tiny"/></td><td><input id="t6w4" class="tiny"/></td>
-              <td><input id="t6w5" class="tiny"/></td><td><input id="t6w6" class="tiny"/></td><td><input id="t6w7" class="tiny"/></td>
-              <td><input id="t6w8" class="tiny"/></td><td><input id="t6w9" class="tiny"/></td><td><input id="t6w10" class="tiny"/></td><td><input id="t6w11" class="tiny"/></td>
-              <td><input id="t6w12" class="tiny"/></td><td><input id="t6w13" class="tiny"/></td><td><input id="t6w14" class="tiny"/></td>
+              <td><input id="t_item6" class="cell-input" placeholder="Item 6" type="text"/></td>
+              <td><input id="t6w1" class="tiny" type="text"/></td><td><input id="t6w2" class="tiny" type="text"/></td><td><input id="t6w3" class="tiny" type="text"/></td><td><input id="t6w4" class="tiny" type="text"/></td>
+              <td><input id="t6w5" class="tiny" type="text"/></td><td><input id="t6w6" class="tiny" type="text"/></td><td><input id="t6w7" class="tiny" type="text"/></td>
+              <td><input id="t6w8" class="tiny" type="text"/></td><td><input id="t6w9" class="tiny" type="text"/></td><td><input id="t6w10" class="tiny" type="text"/></td><td><input id="t6w11" class="tiny" type="text"/></td>
+              <td><input id="t6w12" class="tiny" type="text"/></td><td><input id="t6w13" class="tiny" type="text"/></td><td><input id="t6w14" class="tiny" type="text"/></td>
             </tr>
 
             <tr>
-              <td><input id="t_item7" class="cell-input" placeholder="Item 7"/></td>
-              <td><input id="t7w1" class="tiny"/></td><td><input id="t7w2" class="tiny"/></td><td><input id="t7w3" class="tiny"/></td><td><input id="t7w4" class="tiny"/></td>
-              <td><input id="t7w5" class="tiny"/></td><td><input id="t7w6" class="tiny"/></td><td><input id="t7w7" class="tiny"/></td>
-              <td><input id="t7w8" class="tiny"/></td><td><input id="t7w9" class="tiny"/></td><td><input id="t7w10" class="tiny"/></td><td><input id="t7w11" class="tiny"/></td>
-              <td><input id="t7w12" class="tiny"/></td><td><input id="t7w13" class="tiny"/></td><td><input id="t7w14" class="tiny"/></td>
+              <td><input id="t_item7" class="cell-input" placeholder="Item 7" type="text"/></td>
+              <td><input id="t7w1" class="tiny" type="text"/></td><td><input id="t7w2" class="tiny" type="text"/></td><td><input id="t7w3" class="tiny" type="text"/></td><td><input id="t7w4" class="tiny" type="text"/></td>
+              <td><input id="t7w5" class="tiny" type="text"/></td><td><input id="t7w6" class="tiny" type="text"/></td><td><input id="t7w7" class="tiny" type="text"/></td>
+              <td><input id="t7w8" class="tiny" type="text"/></td><td><input id="t7w9" class="tiny" type="text"/></td><td><input id="t7w10" class="tiny" type="text"/></td><td><input id="t7w11" class="tiny" type="text"/></td>
+              <td><input id="t7w12" class="tiny" type="text"/></td><td><input id="t7w13" class="tiny" type="text"/></td><td><input id="t7w14" class="tiny" type="text"/></td>
             </tr>
 
             <tr>
-              <td><input id="t_item8" class="cell-input" placeholder="Item 8"/></td>
-              <td><input id="t8w1" class="tiny"/></td><td><input id="t8w2" class="tiny"/></td><td><input id="t8w3" class="tiny"/></td><td><input id="t8w4" class="tiny"/></td>
-              <td><input id="t8w5" class="tiny"/></td><td><input id="t8w6" class="tiny"/></td><td><input id="t8w7" class="tiny"/></td>
-              <td><input id="t8w8" class="tiny"/></td><td><input id="t8w9" class="tiny"/></td><td><input id="t8w10" class="tiny"/></td><td><input id="t8w11" class="tiny"/></td>
-              <td><input id="t8w12" class="tiny"/></td><td><input id="t8w13" class="tiny"/></td><td><input id="t8w14" class="tiny"/></td>
+              <td><input id="t_item8" class="cell-input" placeholder="Item 8" type="text"/></td>
+              <td><input id="t8w1" class="tiny" type="text"/></td><td><input id="t8w2" class="tiny" type="text"/></td><td><input id="t8w3" class="tiny" type="text"/></td><td><input id="t8w4" class="tiny" type="text"/></td>
+              <td><input id="t8w5" class="tiny" type="text"/></td><td><input id="t8w6" class="tiny" type="text"/></td><td><input id="t8w7" class="tiny" type="text"/></td>
+              <td><input id="t8w8" class="tiny" type="text"/></td><td><input id="t8w9" class="tiny" type="text"/></td><td><input id="t8w10" class="tiny" type="text"/></td><td><input id="t8w11" class="tiny" type="text"/></td>
+              <td><input id="t8w12" class="tiny" type="text"/></td><td><input id="t8w13" class="tiny" type="text"/></td><td><input id="t8w14" class="tiny" type="text"/></td>
             </tr>
 
             <tr>
-              <td><input id="t_item9" class="cell-input" placeholder="Item 9"/></td>
-              <td><input id="t9w1" class="tiny"/></td><td><input id="t9w2" class="tiny"/></td><td><input id="t9w3" class="tiny"/></td><td><input id="t9w4" class="tiny"/></td>
-              <td><input id="t9w5" class="tiny"/></td><td><input id="t9w6" class="tiny"/></td><td><input id="t9w7" class="tiny"/></td>
-              <td><input id="t9w8" class="tiny"/></td><td><input id="t9w9" class="tiny"/></td><td><input id="t9w10" class="tiny"/></td><td><input id="t9w11" class="tiny"/></td>
-              <td><input id="t9w12" class="tiny"/></td><td><input id="t9w13" class="tiny"/></td><td><input id="t9w14" class="tiny"/></td>
+              <td><input id="t_item9" class="cell-input" placeholder="Item 9" type="text"/></td>
+              <td><input id="t9w1" class="tiny" type="text"/></td><td><input id="t9w2" class="tiny" type="text"/></td><td><input id="t9w3" class="tiny" type="text"/></td><td><input id="t9w4" class="tiny" type="text"/></td>
+              <td><input id="t9w5" class="tiny" type="text"/></td><td><input id="t9w6" class="tiny" type="text"/></td><td><input id="t9w7" class="tiny" type="text"/></td>
+              <td><input id="t9w8" class="tiny" type="text"/></td><td><input id="t9w9" class="tiny" type="text"/></td><td><input id="t9w10" class="tiny" type="text"/></td><td><input id="t9w11" class="tiny" type="text"/></td>
+              <td><input id="t9w12" class="tiny" type="text"/></td><td><input id="t9w13" class="tiny" type="text"/></td><td><input id="t9w14" class="tiny" type="text"/></td>
             </tr>
 
             <tr>
-              <td><input id="t_item10" class="cell-input" placeholder="Item 10"/></td>
-              <td><input id="t10w1" class="tiny"/></td><td><input id="t10w2" class="tiny"/></td><td><input id="t10w3" class="tiny"/></td><td><input id="t10w4" class="tiny"/></td>
-              <td><input id="t10w5" class="tiny"/></td><td><input id="t10w6" class="tiny"/></td><td><input id="t10w7" class="tiny"/></td>
-              <td><input id="t10w8" class="tiny"/></td><td><input id="t10w9" class="tiny"/></td><td><input id="t10w10" class="tiny"/></td><td><input id="t10w11" class="tiny"/></td>
-              <td><input id="t10w12" class="tiny"/></td><td><input id="t10w13" class="tiny"/></td><td><input id="t10w14" class="tiny"/></td>
+              <td><input id="t_item10" class="cell-input" placeholder="Item 10" type="text"/></td>
+              <td><input id="t10w1" class="tiny" type="text"/></td><td><input id="t10w2" class="tiny" type="text"/></td><td><input id="t10w3" class="tiny" type="text"/></td><td><input id="t10w4" class="tiny" type="text"/></td>
+              <td><input id="t10w5" class="tiny" type="text"/></td><td><input id="t10w6" class="tiny" type="text"/></td><td><input id="t10w7" class="tiny" type="text"/></td>
+              <td><input id="t10w8" class="tiny" type="text"/></td><td><input id="t10w9" class="tiny" type="text"/></td><td><input id="t10w10" class="tiny" type="text"/></td><td><input id="t10w11" class="tiny" type="text"/></td>
+              <td><input id="t10w12" class="tiny" type="text"/></td><td><input id="t10w13" class="tiny" type="text"/></td><td><input id="t10w14" class="tiny" type="text"/></td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
-
   </main>
 
-  <script src="app.js"></script>
+  <noscript>
+    <div class="noscript">
+      This app needs JavaScript enabled to save, load, and switch tabs.
+    </div>
+  </noscript>
+
+  <script src="app.js" defer></script>
 </body>
 </html>
-
