@@ -425,16 +425,10 @@ textarea{ font-family:inherit; }
 /* Taller rows for writing space */
 .workout-table tbody td{ height:52px; }
 
-/* Zebra (kept), but exercise column stays white */
-.workout-table tbody tr:nth-child(even) td{ background:var(--purpleSoft); }
-
 /* EXERCISE column: blank white writing space */
 .workout-table tbody td:first-child{
   background:#fff;
   padding:8px 10px;
-}
-.workout-table tbody tr:nth-child(even) td:first-child{
-  background:#fff;
 }
 .workout-table tbody td:first-child input,
 .workout-table tbody td:first-child textarea{
@@ -450,10 +444,17 @@ textarea{ font-family:inherit; }
   box-shadow:none !important;
 }
 
-/* SET cells: clean 2-line layout (reps top, weight bottom) */
+/* SET cells base */
 .workout-table tbody td:not(:first-child){
   background:#fff;
 }
+
+/* ✅ NEW: zebra striping ONLY for reps/weight area (not exercise column) */
+.workout-table tbody tr:nth-child(even) td:not(:first-child){
+  background:var(--purpleSoft);
+}
+
+/* SET inputs: clean 2-line layout (reps top, weight bottom) */
 .workout-table tbody td:not(:first-child) input,
 .workout-table tbody td:not(:first-child) textarea{
   display:block;
@@ -468,12 +469,14 @@ textarea{ font-family:inherit; }
   border-radius:0 !important;
   box-shadow:none !important;
 }
-/* Divider between reps/weight when there are 2 inputs */
+
+/* Divider between reps/weight */
 .workout-table tbody td:not(:first-child) input:first-of-type,
 .workout-table tbody td:not(:first-child) textarea:first-of-type{
   border-bottom:1px solid var(--grid) !important;
 }
-/* If there is only ONE input in the set cell, still looks clean */
+
+/* If there is only ONE input in the set cell */
 .workout-table tbody td:not(:first-child) input:only-of-type,
 .workout-table tbody td:not(:first-child) textarea:only-of-type{
   height:52px;
