@@ -17,6 +17,29 @@ body{
   background:#f2f2f2
 }
 
+/* Accessibility: hide skip link unless keyboard-focused */
+.skip-link{
+  position:absolute;
+  left:-9999px;
+  top:8px;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+.skip-link:focus{
+  left:12px;
+  top:12px;
+  width:auto;
+  height:auto;
+  padding:8px 12px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--grid);
+  border-radius:8px;
+  z-index:9999;
+  box-shadow:0 6px 16px rgba(0,0,0,.12);
+}
+
 /* App shell */
 .appbar{
   position:sticky; top:0; z-index:20;
@@ -77,6 +100,7 @@ body{
     width:var(--pageW);
     min-height:var(--pageH)
   }
+  .skip-link{display:none !important;}
 }
 
 .center-title{display:flex; justify-content:center; margin-bottom:12px}
