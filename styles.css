@@ -330,35 +330,36 @@ textarea{ font-family:inherit; }
 
 .workout-table th{background:var(--purple); color:#fff; font-size:11px; letter-spacing:.06em; font-weight:900; text-align:center; height:28px}
 .workout-table td{height:26px}
-.workout-table .subhead th{background:var(--purpleSoft); color:var(--muted); font-size:9px; letter-spacing:.08em; font-weight:900}
-.workout-table tbody tr:nth-child(even) td{background:var(--purpleSoft)}
+
+/* Subhead: keep the rep/weight hint area, but make EXERCISE subcell white like the reference */
+.workout-table .subhead th{
+  background:var(--purpleSoft);
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:.08em;
+  font-weight:900;
+}
+.workout-table .subhead th:first-child{
+  background:#fff;            /* ✅ blank under EXERCISE */
+}
+
+/* ✅ Reference-style striping:
+   - EXERCISE column stays white (no zebra)
+   - SET columns alternate band color */
+.workout-table tbody td:first-child{
+  background:#fff !important; /* ✅ big blank writing area */
+}
+.workout-table tbody tr:nth-child(odd) td:not(:first-child){
+  background:#fff;
+}
+.workout-table tbody tr:nth-child(even) td:not(:first-child){
+  background:var(--purpleSoft);
+}
+
 .subcell{text-align:left; padding:4px 6px !important}
 .subtxt{line-height:1.2}
 .col-ex{width:42%}
 .col-set{width:8.285%}
-
-/* ===================================================== */
-/* WORKOUT TABLE: keep EXERCISE column white, stripe sets */
-/* ===================================================== */
-
-/* Keep EXERCISE column (body) pure white (no zebra) */
-.workout-table tbody td:first-child{
-  background:#fff !important;
-}
-
-/* Stripe ONLY the set columns, not the first column */
-.workout-table tbody tr:nth-child(even) td:not(:first-child){
-  background: var(--purpleSoft) !important;
-}
-.workout-table tbody tr:nth-child(odd) td:not(:first-child){
-  background:#fff !important;
-}
-
-/* Optional: keep subhead EXERCISE cell consistent */
-.workout-table thead .subhead th:first-child{
-  background: var(--purpleSoft) !important;
-  color: var(--muted) !important;
-}
 
 .split{display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:12px}
 .card{border:1px solid var(--grid); border-radius:6px; padding:10px}
