@@ -74,4 +74,3 @@ document.getElementById("printBtn")?.addEventListener("click", () => {
 
 // ✅ Optional: keep default screen consistent on refresh
 showScreen("starting");
-
